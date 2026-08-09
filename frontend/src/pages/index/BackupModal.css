@@ -1,37 +1,237 @@
+/* =========================================================
+BACKUP LIST — AURORA GLASS
+========================================================= */
+
 .backup-list {
-  width: 100%;
-  border: 1px solid var(--ant-color-border-secondary);
-  border-radius: 8px;
-  overflow: hidden;
+width:
+100%;
+
+border:
+1px solid rgba(129, 140, 248, 0.10);
+
+border-radius:
+14px;
+
+overflow:
+hidden;
+
+background:
+linear-gradient(
+135deg,
+rgba(255, 255, 255, 0.14),
+rgba(99, 102, 241, 0.035)
+);
+
+box-shadow:
+inset 0 1px 0 rgba(255, 255, 255, 0.14),
+0 8px 26px rgba(67, 56, 130, 0.045);
+
+-webkit-backdrop-filter:
+blur(14px) saturate(140%);
+
+backdrop-filter:
+blur(14px);
 }
 
+/* =========================================================
+BACKUP ITEM
+========================================================= */
+
 .backup-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 24px;
-  border-bottom: 1px solid var(--ant-color-border-secondary);
+display:
+flex;
+
+align-items:
+center;
+
+gap:
+16px;
+
+padding:
+13px 18px;
+
+border-bottom:
+1px solid rgba(129, 140, 248, 0.075);
+
+background:
+rgba(255, 255, 255, 0.025);
+
+transition:
+background 0.2s ease,
+border-color 0.2s ease,
+transform 0.2s ease;
 }
 
 .backup-item:last-child {
-  border-bottom: 0;
+border-bottom:
+0;
 }
 
+.backup-item:hover {
+background:
+linear-gradient(
+90deg,
+rgba(99, 102, 241, 0.055),
+rgba(20, 184, 166, 0.025)
+);
+}
+
+/* =========================================================
+BACKUP META
+========================================================= */
+
 .backup-meta {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+flex:
+1;
+
+min-width:
+0;
+
+display:
+flex;
+
+flex-direction:
+column;
+
+gap:
+4px;
 }
 
 .backup-title {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--ant-color-text);
+font-size:
+14px;
+
+font-weight:
+600;
+
+color:
+var(--ant-color-text);
+
+line-height:
+1.4;
 }
 
 .backup-description {
-  font-size: 14px;
-  color: var(--ant-color-text-tertiary);
-  line-height: 1.5715;
+font-size:
+13px;
+
+color:
+var(--ant-color-text-tertiary);
+
+line-height:
+1.5715;
+}
+
+/* =========================================================
+DARK MODE
+========================================================= */
+
+body.dark .backup-list {
+background:
+linear-gradient(
+135deg,
+rgba(255, 255, 255, 0.04),
+rgba(99, 102, 241, 0.035)
+);
+
+border-color:
+rgba(255, 255, 255, 0.06);
+
+box-shadow:
+inset 0 1px 0 rgba(255, 255, 255, 0.035),
+0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+body.dark .backup-item {
+background:
+rgba(255, 255, 255, 0.018);
+
+border-color:
+rgba(255, 255, 255, 0.05);
+}
+
+body.dark .backup-item:hover {
+background:
+linear-gradient(
+90deg,
+rgba(99, 102, 241, 0.055),
+rgba(20, 184, 166, 0.025)
+);
+}
+
+/* =========================================================
+ULTRA DARK
+========================================================= */
+
+html[data-theme="ultra-dark"] .backup-list {
+background:
+linear-gradient(
+135deg,
+rgba(99, 102, 241, 0.045),
+rgba(20, 184, 166, 0.025)
+);
+
+border-color:
+rgba(255, 255, 255, 0.045);
+
+box-shadow:
+inset 0 1px 0 rgba(255, 255, 255, 0.025),
+0 12px 34px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="ultra-dark"] .backup-item {
+background:
+rgba(255, 255, 255, 0.015);
+
+border-color:
+rgba(255, 255, 255, 0.04);
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+.backup-item {
+align-items:
+flex-start;
+
+```
+gap:
+  10px;
+
+padding:
+  12px 13px;
+
+flex-wrap:
+  wrap;
+```
+
+}
+
+.backup-meta {
+min-width:
+calc(100% - 4px);
+}
+
+.backup-title {
+font-size:
+13.5px;
+}
+
+.backup-description {
+font-size:
+12px;
+}
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+.backup-item {
+transition:
+none;
+}
 }
