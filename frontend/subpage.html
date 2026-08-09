@@ -1,14 +1,331 @@
 <!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>Subscription</title>
+
+```
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+/>
+
+<meta
+  name="robots"
+  content="noindex,nofollow"
+/>
+
+<meta
+  name="theme-color"
+  content="#101b32"
+/>
+
+<meta
+  name="color-scheme"
+  content="light dark"
+/>
+
+<title>Subscription</title>
+
+<style>
+  :root {
+    color-scheme: light dark;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    background: #dceeff;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif;
+
+    background:
+      radial-gradient(
+        circle at 10% 10%,
+        rgba(99, 102, 241, 0.25),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 90% 85%,
+        rgba(20, 184, 166, 0.22),
+        transparent 34%
+      ),
+      linear-gradient(
+        135deg,
+        #dceeff 0%,
+        #eee7ff 48%,
+        #ddf7f1 100%
+      );
+  }
+
+  /*
+   * Ambient glass background
+   */
+
+  body::before,
+  body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 480px;
+    height: 480px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(100px);
+
+    z-index: 0;
+
+    will-change: transform;
+  }
+
+  body::before {
+    top: -220px;
+    left: -160px;
+
+    background:
+      rgba(99, 102, 241, 0.24);
+
+    animation:
+      sub-glow-one 22s ease-in-out infinite alternate;
+  }
+
+  body::after {
+    right: -180px;
+    bottom: -220px;
+
+    background:
+      rgba(20, 184, 166, 0.20);
+
+    animation:
+      sub-glow-two 28s ease-in-out infinite alternate;
+  }
+
+  /*
+   * Subtle grid
+   */
+
+  body {
+    background-image:
+      linear-gradient(
+        rgba(99, 102, 241, 0.035) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(99, 102, 241, 0.035) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 10% 10%,
+        rgba(99, 102, 241, 0.25),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 90% 85%,
+        rgba(20, 184, 166, 0.22),
+        transparent 34%
+      ),
+      linear-gradient(
+        135deg,
+        #dceeff 0%,
+        #eee7ff 48%,
+        #ddf7f1 100%
+      );
+
+    background-size:
+      48px 48px,
+      48px 48px,
+      auto,
+      auto,
+      auto;
+  }
+
+  /*
+   * Keep application above effects
+   */
+
+  #message,
+  #app {
+    position: relative;
+    z-index: 1;
+  }
+
+  #app {
+    min-height: 100vh;
+  }
+
+  /*
+   * Animations
+   */
+
+  @keyframes sub-glow-one {
+    0% {
+      transform:
+        translate(0, 0)
+        scale(1);
+    }
+
+    50% {
+      transform:
+        translate(110px, 80px)
+        scale(1.12);
+    }
+
+    100% {
+      transform:
+        translate(220px, 150px)
+        scale(1.2);
+    }
+  }
+
+  @keyframes sub-glow-two {
+    0% {
+      transform:
+        translate(0, 0)
+        scale(1);
+    }
+
+    50% {
+      transform:
+        translate(-100px, -80px)
+        scale(1.12);
+    }
+
+    100% {
+      transform:
+        translate(-200px, -140px)
+        scale(1.2);
+    }
+  }
+
+  /*
+   * Dark mode
+   *
+   * Midnight / deep navy instead of pure black.
+   */
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      background: #0b1224;
+    }
+
+    body {
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 1px
+        ),
+        radial-gradient(
+          circle at 12% 12%,
+          rgba(59, 130, 246, 0.18),
+          transparent 36%
+        ),
+        radial-gradient(
+          circle at 88% 85%,
+          rgba(45, 212, 191, 0.13),
+          transparent 36%
+        ),
+        linear-gradient(
+          135deg,
+          #101b32 0%,
+          #17162e 48%,
+          #0d2930 100%
+        );
+    }
+
+    body::before {
+      background:
+        rgba(59, 130, 246, 0.17);
+    }
+
+    body::after {
+      background:
+        rgba(45, 212, 191, 0.12);
+    }
+  }
+
+  /*
+   * Mobile
+   */
+
+  @media (max-width: 600px) {
+    body {
+      background-size:
+        42px 42px,
+        42px 42px,
+        auto,
+        auto,
+        auto;
+    }
+
+    body::before,
+    body::after {
+      width: 340px;
+      height: 340px;
+
+      filter: blur(80px);
+    }
+  }
+
+  /*
+   * Reduced motion
+   */
+
+  @media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+      animation: none;
+    }
+  }
+</style>
+```
+
   </head>
+
   <body>
     <div id="message"></div>
-    <div id="app"></div>
-    <script type="module" src="/src/entries/subpage.tsx"></script>
+
+```
+<div id="app"></div>
+
+<script
+  type="module"
+  src="/src/entries/subpage.tsx"
+></script>
+```
+
   </body>
 </html>
+
