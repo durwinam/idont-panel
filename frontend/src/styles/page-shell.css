@@ -1,3 +1,8 @@
+/* =========================================================
+PANEL PAGE SHELL
+Aurora Glass Theme
+========================================================= */
+
 .index-page,
 .clients-page,
 .inbounds-page,
@@ -5,12 +10,44 @@
 .settings-page,
 .nodes-page,
 .groups-page,
-.api-docs-page {
-  --bg-page: #e6e8ec;
-  --bg-card: #ffffff;
-  min-height: 100vh;
-  background: var(--bg-page);
+.api-docs-page,
+.hosts-page {
+--bg-page: #d9e5f5;
+--bg-card: rgba(255, 255, 255, 0.34);
+
+--page-text: #1d2642;
+--page-border: rgba(255, 255, 255, 0.52);
+
+min-height: 100vh;
+
+color:
+var(--page-text);
+
+background:
+radial-gradient(
+circle at 8% 8%,
+rgba(99, 102, 241, 0.20),
+transparent 30%
+),
+radial-gradient(
+circle at 92% 88%,
+rgba(20, 184, 166, 0.18),
+transparent 32%
+),
+linear-gradient(
+135deg,
+#dcecff 0%,
+#e9e3ff 48%,
+#dcf5ef 100%
+);
+
+background-attachment:
+fixed;
 }
+
+/* =========================================================
+DARK MODE
+========================================================= */
 
 .index-page.is-dark,
 .clients-page.is-dark,
@@ -19,10 +56,40 @@
 .settings-page.is-dark,
 .nodes-page.is-dark,
 .groups-page.is-dark,
-.api-docs-page.is-dark {
-  --bg-page: #1a1b1f;
-  --bg-card: #23252b;
+.api-docs-page.is-dark,
+.hosts-page.is-dark {
+--bg-page: #101a31;
+--bg-card: rgba(24, 30, 62, 0.48);
+
+--page-text: rgba(255, 255, 255, 0.92);
+--page-border: rgba(255, 255, 255, 0.10);
+
+background:
+radial-gradient(
+circle at 8% 8%,
+rgba(99, 102, 241, 0.18),
+transparent 32%
+),
+radial-gradient(
+circle at 92% 88%,
+rgba(45, 212, 191, 0.12),
+transparent 34%
+),
+linear-gradient(
+135deg,
+#101b34 0%,
+#17182f 48%,
+#0d2930 100%
+);
+
+background-attachment:
+fixed;
 }
+
+/* =========================================================
+ULTRA DARK
+Midnight Indigo
+========================================================= */
 
 .index-page.is-dark.is-ultra,
 .clients-page.is-dark.is-ultra,
@@ -31,10 +98,132 @@
 .settings-page.is-dark.is-ultra,
 .nodes-page.is-dark.is-ultra,
 .groups-page.is-dark.is-ultra,
-.api-docs-page.is-dark.is-ultra {
-  --bg-page: #000;
-  --bg-card: #101013;
+.api-docs-page.is-dark.is-ultra,
+.hosts-page.is-dark.is-ultra {
+--bg-page: #0b1225;
+--bg-card: rgba(16, 22, 48, 0.58);
+
+background:
+radial-gradient(
+circle at 12% 10%,
+rgba(79, 70, 229, 0.16),
+transparent 34%
+),
+radial-gradient(
+circle at 88% 90%,
+rgba(20, 184, 166, 0.09),
+transparent 34%
+),
+linear-gradient(
+135deg,
+#0b142b 0%,
+#15152e 50%,
+#0a242c 100%
+);
+
+background-attachment:
+fixed;
 }
+
+/* =========================================================
+SUBTLE GRID
+========================================================= */
+
+.index-page,
+.clients-page,
+.inbounds-page,
+.xray-page,
+.settings-page,
+.nodes-page,
+.groups-page,
+.api-docs-page,
+.hosts-page {
+background-image:
+linear-gradient(
+rgba(99, 102, 241, 0.035) 1px,
+transparent 1px
+),
+linear-gradient(
+90deg,
+rgba(99, 102, 241, 0.035) 1px,
+transparent 1px
+),
+radial-gradient(
+circle at 8% 8%,
+rgba(99, 102, 241, 0.20),
+transparent 30%
+),
+radial-gradient(
+circle at 92% 88%,
+rgba(20, 184, 166, 0.18),
+transparent 32%
+),
+linear-gradient(
+135deg,
+#dcecff 0%,
+#e9e3ff 48%,
+#dcf5ef 100%
+);
+
+background-size:
+48px 48px,
+48px 48px,
+auto,
+auto,
+auto;
+}
+
+/* =========================================================
+DARK GRID
+========================================================= */
+
+.index-page.is-dark,
+.clients-page.is-dark,
+.inbounds-page.is-dark,
+.xray-page.is-dark,
+.settings-page.is-dark,
+.nodes-page.is-dark,
+.groups-page.is-dark,
+.api-docs-page.is-dark,
+.hosts-page.is-dark {
+background-image:
+linear-gradient(
+rgba(255, 255, 255, 0.016) 1px,
+transparent 1px
+),
+linear-gradient(
+90deg,
+rgba(255, 255, 255, 0.016) 1px,
+transparent 1px
+),
+radial-gradient(
+circle at 8% 8%,
+rgba(99, 102, 241, 0.18),
+transparent 32%
+),
+radial-gradient(
+circle at 92% 88%,
+rgba(45, 212, 191, 0.12),
+transparent 34%
+),
+linear-gradient(
+135deg,
+#101b34 0%,
+#17182f 48%,
+#0d2930 100%
+);
+
+background-size:
+48px 48px,
+48px 48px,
+auto,
+auto,
+auto;
+}
+
+/* =========================================================
+ANT DESIGN LAYOUT
+========================================================= */
 
 .index-page .ant-layout,
 .index-page .ant-layout-content,
@@ -51,9 +240,16 @@
 .groups-page .ant-layout,
 .groups-page .ant-layout-content,
 .api-docs-page .ant-layout,
-.api-docs-page .ant-layout-content {
-  background: transparent;
+.api-docs-page .ant-layout-content,
+.hosts-page .ant-layout,
+.hosts-page .ant-layout-content {
+background:
+transparent !important;
 }
+
+/* =========================================================
+CONTENT SHELL
+========================================================= */
 
 .index-page .content-shell,
 .clients-page .content-shell,
@@ -62,9 +258,15 @@
 .settings-page .content-shell,
 .nodes-page .content-shell,
 .groups-page .content-shell,
-.api-docs-page .content-shell {
-  background: transparent;
+.api-docs-page .content-shell,
+.hosts-page .content-shell {
+background:
+transparent !important;
 }
+
+/* =========================================================
+CONTENT AREA
+========================================================= */
 
 .index-page .content-area,
 .clients-page .content-area,
@@ -72,147 +274,270 @@
 .xray-page .content-area,
 .settings-page .content-area,
 .nodes-page .content-area,
-.groups-page .content-area {
-  padding: 24px;
+.groups-page .content-area,
+.api-docs-page .content-area,
+.hosts-page .content-area {
+padding:
+24px;
 }
 
-@media (max-width: 768px) {
-  .clients-page .content-area,
-  .inbounds-page .content-area,
-  .nodes-page .content-area,
-  .groups-page .content-area {
-    padding: 8px;
-  }
-}
+/* =========================================================
+LOADING
+========================================================= */
 
 .loading-spacer {
-  min-height: calc(100vh - 120px);
+min-height:
+calc(100vh - 120px);
 }
 
-/* Tall action menus (e.g. the inbound/client context menus) must stay inside
-   the viewport even when antd flips them upward near the screen edge. */
+/* =========================================================
+DROPDOWN
+========================================================= */
+
 .ant-dropdown .ant-dropdown-menu {
-  max-height: calc(100vh - 32px);
-  overflow-y: auto;
+max-height:
+calc(100vh - 32px);
+
+overflow-y:
+auto;
+
+border:
+1px solid rgba(255, 255, 255, 0.16) !important;
+
+border-radius:
+14px;
+
+background:
+rgba(255, 255, 255, 0.72) !important;
+
+box-shadow:
+0 20px 55px rgba(55, 65, 120, 0.18);
+
+-webkit-backdrop-filter:
+blur(24px) saturate(160%);
+
+backdrop-filter:
+blur(24px) saturate(160%);
 }
+
+body.dark .ant-dropdown .ant-dropdown-menu {
+background:
+rgba(20, 27, 55, 0.82) !important;
+
+border-color:
+rgba(255, 255, 255, 0.10) !important;
+
+box-shadow:
+0 24px 70px rgba(0, 0, 0, 0.38);
+}
+
+/* =========================================================
+DROPDOWN ITEMS
+========================================================= */
 
 .ant-dropdown-menu-item:not(.ant-dropdown-menu-item-disabled):not(.ant-dropdown-menu-item-danger):hover,
 .ant-dropdown-menu-item:not(.ant-dropdown-menu-item-disabled):not(.ant-dropdown-menu-item-danger):hover .ant-dropdown-menu-title-content,
 .ant-dropdown-menu-item:not(.ant-dropdown-menu-item-disabled):not(.ant-dropdown-menu-item-danger):hover > .anticon {
-  color: var(--ant-color-primary) !important;
+color:
+var(--ant-color-primary) !important;
 }
 
 .ant-dropdown-menu-item:not(.ant-dropdown-menu-item-disabled):not(.ant-dropdown-menu-item-danger):hover {
-  background-color: color-mix(in srgb, var(--ant-color-primary) 14%, transparent) !important;
+background:
+color-mix(
+in srgb,
+var(--ant-color-primary) 14%,
+transparent
+) !important;
+
+border-radius:
+9px;
 }
 
+/* =========================================================
+DROPDOWN DIVIDER
+========================================================= */
+
 .ant-dropdown-menu-item-divider {
-  background-color: var(--ant-color-border) !important;
+background:
+var(--ant-color-border) !important;
 }
 
 body.dark .ant-dropdown-menu-item-divider {
-  background-color: rgba(255, 255, 255, 0.12) !important;
+background:
+rgba(255, 255, 255, 0.12) !important;
 }
+
+/* =========================================================
+SETTINGS / XRAY HEADER
+========================================================= */
 
 .settings-page .header-row,
 .xray-page .header-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+display:
+flex;
+
+flex-wrap:
+wrap;
+
+align-items:
+center;
 }
 
 .settings-page .header-actions,
 .xray-page .header-actions {
-  padding: 4px;
+padding:
+4px;
 }
 
 .settings-page .header-info,
 .xray-page .header-info {
-  display: flex;
-  justify-content: flex-end;
+display:
+flex;
+
+justify-content:
+flex-end;
 }
 
+/* =========================================================
+ICON TABS
+========================================================= */
+
 .icons-only .ant-tabs-nav {
-  margin-bottom: 8px;
+margin-bottom:
+8px;
 }
 
 .icons-only .ant-tabs-nav-wrap {
-  width: 100%;
+width:
+100%;
 }
 
 .icons-only .ant-tabs-nav-list {
-  display: flex;
-  width: 100%;
+display:
+flex;
+
+width:
+100%;
 }
 
 .icons-only .ant-tabs-tab {
-  flex: 1 1 0;
-  justify-content: center;
-  margin: 0;
-  padding: 10px 0;
+flex:
+1 1 0;
+
+justify-content:
+center;
+
+margin:
+0;
+
+padding:
+10px 0;
 }
 
 .icons-only .ant-tabs-tab .anticon {
-  margin: 0;
-  font-size: 18px;
+margin:
+0;
+
+font-size:
+18px;
 }
 
 .icons-only .ant-tabs-nav-operations {
-  display: none;
+display:
+none;
+}
+
+/* =========================================================
+SUMMARY CARDS
+========================================================= */
+
+.clients-page .summary-card,
+.inbounds-page .summary-card,
+.nodes-page .summary-card,
+.groups-page .summary-card,
+.hosts-page .summary-card {
+padding:
+16px;
+
+border-radius:
+16px;
+
+background:
+rgba(255, 255, 255, 0.16);
+
+border:
+1px solid rgba(255, 255, 255, 0.20);
+
+-webkit-backdrop-filter:
+blur(18px);
+
+backdrop-filter:
+blur(18px);
+}
+
+/* =========================================================
+DARK SUMMARY CARDS
+========================================================= */
+
+.clients-page.is-dark .summary-card,
+.inbounds-page.is-dark .summary-card,
+.nodes-page.is-dark .summary-card,
+.groups-page.is-dark .summary-card,
+.hosts-page.is-dark .summary-card {
+background:
+rgba(255, 255, 255, 0.035);
+
+border-color:
+rgba(255, 255, 255, 0.075);
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+.clients-page .content-area,
+.inbounds-page .content-area,
+.nodes-page .content-area,
+.groups-page .content-area,
+.hosts-page .content-area {
+padding:
+8px;
 }
 
 .clients-page .summary-card,
 .inbounds-page .summary-card,
 .nodes-page .summary-card,
-.groups-page .summary-card {
-  padding: 16px;
-}
-
-@media (max-width: 768px) {
-  .clients-page .summary-card,
-  .inbounds-page .summary-card,
-  .nodes-page .summary-card,
-  .groups-page .summary-card {
-    padding: 8px;
-  }
-}
-
-/* Hosts page shares the standard panel page shell (background, transparent
-   layout, content padding, summary-card padding). */
-.hosts-page {
-  --bg-page: #e6e8ec;
-  --bg-card: #ffffff;
-  min-height: 100vh;
-  background: var(--bg-page);
-}
-
-.hosts-page.is-dark {
-  --bg-page: #1a1b1f;
-  --bg-card: #23252b;
-}
-
-.hosts-page.is-dark.is-ultra {
-  --bg-page: #000;
-  --bg-card: #101013;
-}
-
-.hosts-page .ant-layout,
-.hosts-page .ant-layout-content,
-.hosts-page .content-shell {
-  background: transparent;
-}
-
-.hosts-page .content-area {
-  padding: 24px;
-}
-
+.groups-page .summary-card,
 .hosts-page .summary-card {
-  padding: 16px;
+padding:
+8px;
+
+```
+border-radius:
+  13px;
+```
+
+}
 }
 
-@media (max-width: 768px) {
-  .hosts-page .content-area,
-  .hosts-page .summary-card {
-    padding: 8px;
-  }
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+.index-page,
+.clients-page,
+.inbounds-page,
+.xray-page,
+.settings-page,
+.nodes-page,
+.groups-page,
+.api-docs-page,
+.hosts-page {
+background-attachment:
+scroll;
 }
+}
+
