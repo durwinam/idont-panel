@@ -1,3 +1,142 @@
+/* =========================================================
+GLOBAL GLASS CARDS
+Aurora Indigo Glassmorphism
+========================================================= */
+
+.index-page,
+.clients-page,
+.inbounds-page,
+.xray-page,
+.settings-page,
+.nodes-page,
+.groups-page,
+.api-docs-page,
+.hosts-page {
+--glass-card-bg:
+rgba(255, 255, 255, 0.34);
+
+--glass-card-bg-hover:
+rgba(255, 255, 255, 0.46);
+
+--glass-card-border:
+rgba(255, 255, 255, 0.58);
+
+--glass-card-border-hover:
+rgba(129, 140, 248, 0.42);
+
+--glass-card-shadow:
+0 18px 55px rgba(67, 56, 130, 0.12),
+0 4px 18px rgba(67, 56, 130, 0.07),
+inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+--glass-card-shadow-hover:
+0 24px 65px rgba(67, 56, 130, 0.18),
+0 8px 25px rgba(99, 102, 241, 0.10),
+inset 0 1px 0 rgba(255, 255, 255, 0.75);
+
+--glass-accent:
+#6366f1;
+
+--glass-accent-soft:
+rgba(99, 102, 241, 0.10);
+
+--glass-text:
+#1e2440;
+
+--glass-divider:
+rgba(99, 102, 241, 0.10);
+}
+
+/* =========================================================
+DARK GLASS
+Deep Indigo / Midnight
+========================================================= */
+
+.index-page.is-dark,
+.clients-page.is-dark,
+.inbounds-page.is-dark,
+.xray-page.is-dark,
+.settings-page.is-dark,
+.nodes-page.is-dark,
+.groups-page.is-dark,
+.api-docs-page.is-dark,
+.hosts-page.is-dark {
+--glass-card-bg:
+rgba(24, 30, 62, 0.48);
+
+--glass-card-bg-hover:
+rgba(35, 42, 80, 0.60);
+
+--glass-card-border:
+rgba(255, 255, 255, 0.12);
+
+--glass-card-border-hover:
+rgba(129, 140, 248, 0.38);
+
+--glass-card-shadow:
+0 20px 65px rgba(0, 0, 0, 0.28),
+0 5px 22px rgba(79, 70, 229, 0.08),
+inset 0 1px 0 rgba(255, 255, 255, 0.075);
+
+--glass-card-shadow-hover:
+0 26px 75px rgba(0, 0, 0, 0.38),
+0 8px 30px rgba(99, 102, 241, 0.13),
+inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+--glass-accent:
+#818cf8;
+
+--glass-accent-soft:
+rgba(129, 140, 248, 0.11);
+
+--glass-text:
+rgba(255, 255, 255, 0.93);
+
+--glass-divider:
+rgba(255, 255, 255, 0.075);
+}
+
+/* =========================================================
+ULTRA DARK
+Midnight Indigo — NOT BLACK
+========================================================= */
+
+.index-page.is-dark.is-ultra,
+.clients-page.is-dark.is-ultra,
+.inbounds-page.is-dark.is-ultra,
+.xray-page.is-dark.is-ultra,
+.settings-page.is-dark.is-ultra,
+.nodes-page.is-dark.is-ultra,
+.groups-page.is-dark.is-ultra,
+.api-docs-page.is-dark.is-ultra,
+.hosts-page.is-dark.is-ultra {
+--glass-card-bg:
+rgba(16, 22, 48, 0.58);
+
+--glass-card-bg-hover:
+rgba(25, 32, 64, 0.68);
+
+--glass-card-border:
+rgba(255, 255, 255, 0.09);
+
+--glass-card-border-hover:
+rgba(129, 140, 248, 0.32);
+
+--glass-card-shadow:
+0 24px 80px rgba(0, 0, 0, 0.42),
+0 8px 32px rgba(67, 56, 202, 0.08),
+inset 0 1px 0 rgba(255, 255, 255, 0.055);
+
+--glass-card-shadow-hover:
+0 30px 90px rgba(0, 0, 0, 0.52),
+0 10px 38px rgba(99, 102, 241, 0.10),
+inset 0 1px 0 rgba(255, 255, 255, 0.075);
+}
+
+/* =========================================================
+ALL CARDS
+========================================================= */
+
 .index-page .ant-card,
 .clients-page .ant-card,
 .inbounds-page .ant-card,
@@ -5,24 +144,422 @@
 .settings-page .ant-card,
 .nodes-page .ant-card,
 .groups-page .ant-card,
-.api-docs-page .ant-card {
-  border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+.api-docs-page .ant-card,
+.hosts-page .ant-card {
+position: relative;
+
+overflow: hidden;
+
+border-radius: 20px !important;
+
+background:
+var(--glass-card-bg) !important;
+
+border:
+1px solid var(--glass-card-border) !important;
+
+box-shadow:
+var(--glass-card-shadow);
+
+color:
+var(--glass-text);
+
+transition:
+transform 0.22s ease,
+box-shadow 0.28s ease,
+border-color 0.22s ease,
+background 0.22s ease;
+
+-webkit-backdrop-filter:
+blur(24px) saturate(160%);
+
+backdrop-filter:
+blur(24px) saturate(160%);
 }
 
-.index-page.is-dark .ant-card,
-.clients-page.is-dark .ant-card,
-.inbounds-page.is-dark .ant-card,
-.xray-page.is-dark .ant-card,
-.settings-page.is-dark .ant-card,
-.nodes-page.is-dark .ant-card,
-.groups-page.is-dark .ant-card,
-.api-docs-page.is-dark .ant-card {
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+/* =========================================================
+GLASS SHINE
+========================================================= */
+
+.index-page .ant-card::before,
+.clients-page .ant-card::before,
+.inbounds-page .ant-card::before,
+.xray-page .ant-card::before,
+.settings-page .ant-card::before,
+.nodes-page .ant-card::before,
+.groups-page .ant-card::before,
+.api-docs-page .ant-card::before,
+.hosts-page .ant-card::before {
+content: "";
+
+position: absolute;
+
+top: 0;
+left: 0;
+right: 0;
+
+height: 42%;
+
+pointer-events: none;
+
+background:
+linear-gradient(
+135deg,
+rgba(255, 255, 255, 0.22),
+rgba(255, 255, 255, 0.035) 50%,
+transparent
+);
+
+opacity: 0.8;
+
+z-index: 0;
 }
+
+/* =========================================================
+TOP LIGHT LINE
+========================================================= */
+
+.index-page .ant-card::after,
+.clients-page .ant-card::after,
+.inbounds-page .ant-card::after,
+.xray-page .ant-card::after,
+.settings-page .ant-card::after,
+.nodes-page .ant-card::after,
+.groups-page .ant-card::after,
+.api-docs-page .ant-card::after,
+.hosts-page .ant-card::after {
+content: "";
+
+position: absolute;
+
+top: 0;
+left: 8%;
+
+width: 84%;
+
+height: 1px;
+
+pointer-events: none;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255, 255, 255, 0.62),
+transparent
+);
+
+opacity: 0.65;
+
+z-index: 2;
+}
+
+/* =========================================================
+HOVER
+========================================================= */
+
+.index-page .ant-card.ant-card-hoverable:hover,
+.clients-page .ant-card.ant-card-hoverable:hover,
+.inbounds-page .ant-card.ant-card-hoverable:hover,
+.xray-page .ant-card.ant-card-hoverable:hover,
+.settings-page .ant-card.ant-card-hoverable:hover,
+.nodes-page .ant-card.ant-card-hoverable:hover,
+.groups-page .ant-card.ant-card-hoverable:hover,
+.api-docs-page .ant-card.ant-card-hoverable:hover,
+.hosts-page .ant-card.ant-card-hoverable:hover {
+cursor: default;
+
+transform:
+translateY(-3px);
+
+background:
+var(--glass-card-bg-hover) !important;
+
+border-color:
+var(--glass-card-border-hover) !important;
+
+box-shadow:
+var(--glass-card-shadow-hover);
+}
+
+/* =========================================================
+CARD HEAD
+========================================================= */
+
+.index-page .ant-card-head,
+.clients-page .ant-card-head,
+.inbounds-page .ant-card-head,
+.xray-page .ant-card-head,
+.settings-page .ant-card-head,
+.nodes-page .ant-card-head,
+.groups-page .ant-card-head,
+.api-docs-page .ant-card-head,
+.hosts-page .ant-card-head {
+position: relative;
+
+z-index: 3;
+
+background:
+rgba(255, 255, 255, 0.035) !important;
+
+border-bottom:
+1px solid var(--glass-divider) !important;
+
+-webkit-backdrop-filter:
+blur(18px);
+
+backdrop-filter:
+blur(18px);
+}
+
+/* =========================================================
+CARD TITLE
+========================================================= */
+
+.index-page .ant-card-head-title,
+.clients-page .ant-card-head-title,
+.inbounds-page .ant-card-head-title,
+.xray-page .ant-card-head-title,
+.settings-page .ant-card-head-title,
+.nodes-page .ant-card-head-title,
+.groups-page .ant-card-head-title,
+.api-docs-page .ant-card-head-title,
+.hosts-page .ant-card-head-title {
+color:
+var(--glass-text) !important;
+
+font-weight:
+650;
+}
+
+/* =========================================================
+CARD BODY
+========================================================= */
+
+.index-page .ant-card-body,
+.clients-page .ant-card-body,
+.inbounds-page .ant-card-body,
+.xray-page .ant-card-body,
+.settings-page .ant-card-body,
+.nodes-page .ant-card-body,
+.groups-page .ant-card-body,
+.api-docs-page .ant-card-body,
+.hosts-page .ant-card-body {
+position: relative;
+
+z-index: 3;
+
+background:
+transparent !important;
+
+color:
+var(--glass-text);
+}
+
+/* =========================================================
+CARD ACTIONS
+========================================================= */
+
+.index-page .ant-card .ant-card-actions,
+.clients-page .ant-card .ant-card-actions,
+.inbounds-page .ant-card .ant-card-actions,
+.xray-page .ant-card .ant-card-actions,
+.settings-page .ant-card .ant-card-actions,
+.nodes-page .ant-card .ant-card-actions,
+.groups-page .ant-card .ant-card-actions,
+.api-docs-page .ant-card .ant-card-actions,
+.hosts-page .ant-card .ant-card-actions {
+position: relative;
+
+z-index: 3;
+
+background:
+rgba(255, 255, 255, 0.035) !important;
+
+border-top:
+1px solid var(--glass-divider) !important;
+
+-webkit-backdrop-filter:
+blur(18px);
+
+backdrop-filter:
+blur(18px);
+}
+
+/* =========================================================
+TABLES INSIDE CARDS
+========================================================= */
+
+.index-page .ant-card .ant-table,
+.clients-page .ant-card .ant-table,
+.inbounds-page .ant-card .ant-table,
+.xray-page .ant-card .ant-table,
+.settings-page .ant-card .ant-table,
+.nodes-page .ant-card .ant-table,
+.groups-page .ant-card .ant-table,
+.api-docs-page .ant-card .ant-table,
+.hosts-page .ant-card .ant-table {
+background:
+transparent !important;
+
+color:
+var(--glass-text);
+}
+
+.index-page .ant-card .ant-table-thead > tr > th,
+.clients-page .ant-card .ant-table-thead > tr > th,
+.inbounds-page .ant-card .ant-table-thead > tr > th,
+.xray-page .ant-card .ant-table-thead > tr > th,
+.settings-page .ant-card .ant-table-thead > tr > th,
+.nodes-page .ant-card .ant-table-thead > tr > th,
+.groups-page .ant-card .ant-table-thead > tr > th,
+.api-docs-page .ant-card .ant-table-thead > tr > th,
+.hosts-page .ant-card .ant-table-thead > tr > th {
+background:
+rgba(99, 102, 241, 0.055) !important;
+
+color:
+var(--glass-text) !important;
+
+border-bottom:
+1px solid var(--glass-divider) !important;
+}
+
+.index-page .ant-card .ant-table-tbody > tr > td,
+.clients-page .ant-card .ant-table-tbody > tr > td,
+.inbounds-page .ant-card .ant-table-tbody > tr > td,
+.xray-page .ant-card .ant-table-tbody > tr > td,
+.settings-page .ant-card .ant-table-tbody > tr > td,
+.nodes-page .ant-card .ant-table-tbody > tr > td,
+.groups-page .ant-card .ant-table-tbody > tr > td,
+.api-docs-page .ant-card .ant-table-tbody > tr > td,
+.hosts-page .ant-card .ant-table-tbody > tr > td {
+background:
+transparent !important;
+
+color:
+var(--glass-text);
+
+border-bottom:
+1px solid var(--glass-divider) !important;
+}
+
+.index-page .ant-card .ant-table-tbody > tr:hover > td,
+.clients-page .ant-card .ant-table-tbody > tr:hover > td,
+.inbounds-page .ant-card .ant-table-tbody > tr:hover > td,
+.xray-page .ant-card .ant-table-tbody > tr:hover > td,
+.settings-page .ant-card .ant-table-tbody > tr:hover > td,
+.nodes-page .ant-card .ant-table-tbody > tr:hover > td,
+.groups-page .ant-card .ant-table-tbody > tr:hover > td,
+.api-docs-page .ant-card .ant-table-tbody > tr:hover > td,
+.hosts-page .ant-card .ant-table-tbody > tr:hover > td {
+background:
+var(--glass-accent-soft) !important;
+}
+
+/* =========================================================
+FORM CONTROLS INSIDE CARDS
+========================================================= */
+
+.index-page .ant-card .ant-input,
+.clients-page .ant-card .ant-input,
+.inbounds-page .ant-card .ant-input,
+.xray-page .ant-card .ant-input,
+.settings-page .ant-card .ant-input,
+.nodes-page .ant-card .ant-input,
+.groups-page .ant-card .ant-input,
+.api-docs-page .ant-card .ant-input,
+.hosts-page .ant-input {
+background:
+rgba(255, 255, 255, 0.08) !important;
+
+border:
+1px solid var(--glass-divider) !important;
+
+color:
+var(--glass-text) !important;
+
+-webkit-backdrop-filter:
+blur(12px);
+
+backdrop-filter:
+blur(12px);
+}
+
+.index-page .ant-card .ant-input:focus,
+.clients-page .ant-card .ant-input:focus,
+.inbounds-page .ant-card .ant-input:focus,
+.xray-page .ant-card .ant-input:focus,
+.settings-page .ant-card .ant-input:focus,
+.nodes-page .ant-card .ant-input:focus,
+.groups-page .ant-card .ant-input:focus,
+.api-docs-page .ant-card .ant-input:focus,
+.hosts-page .ant-input:focus {
+border-color:
+rgba(99, 102, 241, 0.45) !important;
+
+box-shadow:
+0 0 0 3px
+rgba(99, 102, 241, 0.10) !important;
+}
+
+/* =========================================================
+DARK / ULTRA DARK CARD HEAD
+========================================================= */
+
+.index-page.is-dark .ant-card-head,
+.clients-page.is-dark .ant-card-head,
+.inbounds-page.is-dark .ant-card-head,
+.xray-page.is-dark .ant-card-head,
+.settings-page.is-dark .ant-card-head,
+.nodes-page.is-dark .ant-card-head,
+.groups-page.is-dark .ant-card-head,
+.api-docs-page.is-dark .ant-card-head,
+.hosts-page.is-dark .ant-card-head {
+background:
+rgba(255, 255, 255, 0.025) !important;
+}
+
+/* =========================================================
+DARK TABLE
+========================================================= */
+
+.index-page.is-dark .ant-card .ant-table-thead > tr > th,
+.clients-page.is-dark .ant-card .ant-table-thead > tr > th,
+.inbounds-page.is-dark .ant-card .ant-table-thead > tr > th,
+.xray-page.is-dark .ant-card .ant-table-thead > tr > th,
+.settings-page.is-dark .ant-card .ant-table-thead > tr > th,
+.nodes-page.is-dark .ant-card .ant-table-thead > tr > th,
+.groups-page.is-dark .ant-card .ant-table-thead > tr > th,
+.api-docs-page.is-dark .ant-card .ant-table-thead > tr > th,
+.hosts-page.is-dark .ant-card .ant-table-thead > tr > th {
+background:
+rgba(99, 102, 241, 0.075) !important;
+}
+
+/* =========================================================
+DARK FORM
+========================================================= */
+
+.index-page.is-dark .ant-card .ant-input,
+.clients-page.is-dark .ant-card .ant-input,
+.inbounds-page.is-dark .ant-card .ant-input,
+.xray-page.is-dark .ant-card .ant-input,
+.settings-page.is-dark .ant-card .ant-input,
+.nodes-page.is-dark .ant-card .ant-input,
+.groups-page.is-dark .ant-card .ant-input,
+.api-docs-page.is-dark .ant-card .ant-input,
+.hosts-page.is-dark .ant-input {
+background:
+rgba(255, 255, 255, 0.045) !important;
+
+border-color:
+rgba(255, 255, 255, 0.08) !important;
+}
+
+/* =========================================================
+ULTRA DARK
+========================================================= */
 
 .index-page.is-dark.is-ultra .ant-card,
 .clients-page.is-dark.is-ultra .ant-card,
@@ -31,10 +568,60 @@
 .settings-page.is-dark.is-ultra .ant-card,
 .nodes-page.is-dark.is-ultra .ant-card,
 .groups-page.is-dark.is-ultra .ant-card,
-.api-docs-page.is-dark.is-ultra .ant-card {
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+.api-docs-page.is-dark.is-ultra .ant-card,
+.hosts-page.is-dark.is-ultra .ant-card {
+box-shadow:
+var(--glass-card-shadow);
+}
+
+/* =========================================================
+STATUS / TAGS
+========================================================= */
+
+.index-page .ant-card .ant-tag,
+.clients-page .ant-card .ant-tag,
+.inbounds-page .ant-card .ant-tag,
+.xray-page .ant-card .ant-tag,
+.settings-page .ant-card .ant-tag,
+.nodes-page .ant-card .ant-tag,
+.groups-page .ant-card .ant-tag,
+.api-docs-page .ant-card .ant-tag,
+.hosts-page .ant-card .ant-tag {
+border-radius:
+999px;
+
+-webkit-backdrop-filter:
+blur(10px);
+
+backdrop-filter:
+blur(10px);
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+.index-page .ant-card,
+.clients-page .ant-card,
+.inbounds-page .ant-card,
+.xray-page .ant-card,
+.settings-page .ant-card,
+.nodes-page .ant-card,
+.groups-page .ant-card,
+.api-docs-page .ant-card,
+.hosts-page .ant-card {
+border-radius:
+16px !important;
+
+```
+-webkit-backdrop-filter:
+  blur(18px) saturate(145%);
+
+backdrop-filter:
+  blur(18px) saturate(145%);
+```
+
 }
 
 .index-page .ant-card.ant-card-hoverable:hover,
@@ -44,85 +631,27 @@
 .settings-page .ant-card.ant-card-hoverable:hover,
 .nodes-page .ant-card.ant-card-hoverable:hover,
 .groups-page .ant-card.ant-card-hoverable:hover,
-.api-docs-page .ant-card.ant-card-hoverable:hover {
-  cursor: default;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-.index-page.is-dark .ant-card.ant-card-hoverable:hover,
-.clients-page.is-dark .ant-card.ant-card-hoverable:hover,
-.inbounds-page.is-dark .ant-card.ant-card-hoverable:hover,
-.xray-page.is-dark .ant-card.ant-card-hoverable:hover,
-.settings-page.is-dark .ant-card.ant-card-hoverable:hover,
-.nodes-page.is-dark .ant-card.ant-card-hoverable:hover,
-.groups-page.is-dark .ant-card.ant-card-hoverable:hover,
-.api-docs-page.is-dark .ant-card.ant-card-hoverable:hover {
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.index-page.is-dark.is-ultra .ant-card.ant-card-hoverable:hover,
-.clients-page.is-dark.is-ultra .ant-card.ant-card-hoverable:hover,
-.inbounds-page.is-dark.is-ultra .ant-card.ant-card-hoverable:hover,
-.xray-page.is-dark.is-ultra .ant-card.ant-card-hoverable:hover,
-.settings-page.is-dark.is-ultra .ant-card.ant-card-hoverable:hover,
-.nodes-page.is-dark.is-ultra .ant-card.ant-card-hoverable:hover,
-.groups-page.is-dark.is-ultra .ant-card.ant-card-hoverable:hover,
-.api-docs-page.is-dark.is-ultra .ant-card.ant-card-hoverable:hover {
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-.index-page .ant-card .ant-card-actions,
-.clients-page .ant-card .ant-card-actions,
-.inbounds-page .ant-card .ant-card-actions,
-.xray-page .ant-card .ant-card-actions,
-.settings-page .ant-card .ant-card-actions,
-.nodes-page .ant-card .ant-card-actions,
-.groups-page .ant-card .ant-card-actions,
-.api-docs-page .ant-card .ant-card-actions {
-  background: transparent;
-}
-
-/* Hosts page shares the same card styling + hover shadows (without the default
-   antd hoverable pointer/blur), matching Clients/Inbounds/etc. */
-.hosts-page .ant-card {
-  border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s ease;
-}
-
-.hosts-page.is-dark .ant-card {
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-.hosts-page.is-dark.is-ultra .ant-card {
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.025);
-}
-
+.api-docs-page .ant-card.ant-card-hoverable:hover,
 .hosts-page .ant-card.ant-card-hoverable:hover {
-  cursor: default;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+transform:
+translateY(-1px);
+}
 }
 
-.hosts-page.is-dark .ant-card.ant-card-hoverable:hover {
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
+/* =========================================================
+REDUCED MOTION
+========================================================= */
 
-.hosts-page.is-dark.is-ultra .ant-card.ant-card-hoverable:hover {
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+@media (prefers-reduced-motion: reduce) {
+.index-page .ant-card,
+.clients-page .ant-card,
+.inbounds-page .ant-card,
+.xray-page .ant-card,
+.settings-page .ant-card,
+.nodes-page .ant-card,
+.groups-page .ant-card,
+.api-docs-page .ant-card,
+.hosts-page .ant-card {
+transition: none;
 }
-
-.hosts-page .ant-card .ant-card-actions {
-  background: transparent;
 }
