@@ -1,24 +1,37 @@
+.api-docs-page {
+  --sw-bg: var(--ant-color-bg-container);
+  --sw-bg-soft: var(--ant-color-fill-quaternary);
+  --sw-bg-input: var(--ant-color-bg-container);
+  --sw-bg-code: var(--ant-color-fill-tertiary);
+  --sw-border: var(--ant-color-border-secondary);
+  --sw-border-strong: var(--ant-color-border);
+  --sw-text: var(--ant-color-text);
+  --sw-text-muted: var(--ant-color-text-secondary);
+  --sw-text-dim: var(--ant-color-text-tertiary);
+  --sw-accent: var(--ant-color-primary);
+}
+
 .api-docs-page.is-dark {
-  --sw-bg: #1f2026;
-  --sw-bg-soft: #25272e;
-  --sw-bg-input: #15161a;
-  --sw-bg-code: #0d0e12;
-  --sw-border: rgba(255, 255, 255, 0.08);
-  --sw-border-strong: rgba(255, 255, 255, 0.15);
-  --sw-text: rgba(255, 255, 255, 0.88);
-  --sw-text-muted: rgba(255, 255, 255, 0.6);
-  --sw-text-dim: rgba(255, 255, 255, 0.45);
-  --sw-accent: #58a6ff;
+  --sw-bg: var(--ant-color-bg-container);
+  --sw-bg-soft: var(--ant-color-fill-quaternary);
+  --sw-bg-input: var(--ant-color-bg-container);
+  --sw-bg-code: var(--ant-color-fill-tertiary);
+  --sw-border: var(--ant-color-border-secondary);
+  --sw-border-strong: var(--ant-color-border);
+  --sw-text: var(--ant-color-text);
+  --sw-text-muted: var(--ant-color-text-secondary);
+  --sw-text-dim: var(--ant-color-text-tertiary);
+  --sw-accent: var(--ant-color-primary);
   color-scheme: dark;
 }
 
 .api-docs-page.is-dark.is-ultra {
-  --sw-bg: #0a0a0d;
-  --sw-bg-soft: #131316;
-  --sw-bg-input: #050507;
-  --sw-bg-code: #000;
-  --sw-border: rgba(255, 255, 255, 0.06);
-  --sw-border-strong: rgba(255, 255, 255, 0.12);
+  --sw-bg: var(--ant-color-bg-container);
+  --sw-bg-soft: var(--ant-color-fill-quaternary);
+  --sw-bg-input: var(--ant-color-bg-container);
+  --sw-bg-code: var(--ant-color-fill-tertiary);
+  --sw-border: var(--ant-color-border-secondary);
+  --sw-border-strong: var(--ant-color-border);
 }
 
 .api-docs-page .content-shell {
@@ -46,13 +59,10 @@
 
 .api-docs-page .swagger-ui {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--sw-text);
 }
 
-/* ──────────────────────────────────────────────────────────────────
-   Dark mode — Swagger UI does not ship a dark theme, so every visual
-   surface needs an explicit override. Method-color chips (GET / POST /
-   …) are left untouched because they carry meaning at a glance.
-   ────────────────────────────────────────────────────────────────── */
+/* Dark mode — Swagger UI does not ship a dark theme */
 
 .api-docs-page.is-dark .swagger-ui,
 .api-docs-page.is-dark .swagger-ui .info .title,
@@ -126,7 +136,7 @@
 }
 
 .api-docs-page.is-dark .swagger-ui .opblock .opblock-section-header {
-  background: rgba(255, 255, 255, 0.03);
+  background: color-mix(in srgb, var(--ant-color-text) 3%, transparent);
   box-shadow: inset 0 -1px 0 var(--sw-border);
 }
 
@@ -145,18 +155,18 @@
 .api-docs-page.is-dark .swagger-ui pre.example,
 .api-docs-page.is-dark .swagger-ui code {
   background: var(--sw-bg-code);
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--sw-text);
 }
 
 .api-docs-page.is-dark .swagger-ui .highlight-code .copy-to-clipboard {
-  background: rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, var(--ant-color-text) 6%, transparent);
 }
 
-.api-docs-page.is-dark .swagger-ui input[type=text],
-.api-docs-page.is-dark .swagger-ui input[type=password],
-.api-docs-page.is-dark .swagger-ui input[type=search],
-.api-docs-page.is-dark .swagger-ui input[type=email],
-.api-docs-page.is-dark .swagger-ui input[type=file],
+.api-docs-page.is-dark .swagger-ui input[type='text'],
+.api-docs-page.is-dark .swagger-ui input[type='password'],
+.api-docs-page.is-dark .swagger-ui input[type='search'],
+.api-docs-page.is-dark .swagger-ui input[type='email'],
+.api-docs-page.is-dark .swagger-ui input[type='file'],
 .api-docs-page.is-dark .swagger-ui textarea {
   background: var(--sw-bg-input);
   color: var(--sw-text);
@@ -165,10 +175,6 @@
 
 .api-docs-page.is-dark .swagger-ui select {
   background-color: var(--sw-bg-input);
-  background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%23b7bcbf' d='M13.418 7.859a.695.695 0 0 1 .978 0 .68.68 0 0 1 0 .969l-3.908 3.83a.697.697 0 0 1-.979 0l-3.908-3.83a.68.68 0 0 1 0-.969.695.695 0 0 1 .978 0L10 11z'/></svg>");
-  background-position: right 10px center;
-  background-repeat: no-repeat;
-  background-size: 20px;
   color: var(--sw-text);
   border-color: var(--sw-border-strong);
 }
@@ -179,7 +185,7 @@
 }
 
 .api-docs-page.is-dark .swagger-ui textarea {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 .api-docs-page.is-dark .swagger-ui input::placeholder,
@@ -212,12 +218,12 @@
 }
 
 .api-docs-page.is-dark .swagger-ui section.models .model-container {
-  background: rgba(255, 255, 255, 0.02);
+  background: color-mix(in srgb, var(--ant-color-text) 2%, transparent);
   border-color: var(--sw-border);
 }
 
 .api-docs-page.is-dark .swagger-ui section.models .model-container:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: color-mix(in srgb, var(--ant-color-text) 4%, transparent);
 }
 
 .api-docs-page.is-dark .swagger-ui .prop-type,
@@ -253,34 +259,30 @@
 }
 
 .api-docs-page.is-dark .swagger-ui .btn {
-  background: rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, var(--ant-color-text) 6%, transparent);
   color: var(--sw-text);
   border-color: var(--sw-border-strong);
   box-shadow: none;
 }
 
 .api-docs-page.is-dark .swagger-ui .btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: color-mix(in srgb, var(--ant-color-text) 10%, transparent);
 }
 
 .api-docs-page.is-dark .swagger-ui .btn.execute {
   background: var(--sw-accent);
-  color: #0d1117;
+  color: var(--ant-color-text-light-solid);
   border-color: var(--sw-accent);
 }
 
-.api-docs-page.is-dark .swagger-ui .btn.execute:hover {
-  background: #79b9ff;
-}
-
 .api-docs-page.is-dark .swagger-ui .btn.authorize {
-  color: #52c41a;
-  border-color: rgba(82, 196, 26, 0.4);
-  background: rgba(82, 196, 26, 0.08);
+  color: var(--ant-color-success);
+  border-color: color-mix(in srgb, var(--ant-color-success) 40%, transparent);
+  background: color-mix(in srgb, var(--ant-color-success) 8%, transparent);
 }
 
 .api-docs-page.is-dark .swagger-ui .btn.authorize svg {
-  fill: #52c41a;
+  fill: var(--ant-color-success);
 }
 
 .api-docs-page.is-dark .swagger-ui .authorization__btn svg,
@@ -296,23 +298,23 @@
 }
 
 .api-docs-page.is-dark .swagger-ui .btn.cancel {
-  color: #ff7875;
-  border-color: rgba(255, 120, 117, 0.4);
-  background: rgba(255, 120, 117, 0.08);
+  color: var(--ant-color-error);
+  border-color: color-mix(in srgb, var(--ant-color-error) 40%, transparent);
+  background: color-mix(in srgb, var(--ant-color-error) 8%, transparent);
 }
 
 .api-docs-page.is-dark .swagger-ui .btn.btn-clear,
 .api-docs-page.is-dark .swagger-ui .btn-clear,
 .api-docs-page.is-dark .swagger-ui .try-out__btn {
   color: var(--sw-text);
-  background: rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, var(--ant-color-text) 6%, transparent);
   border-color: var(--sw-border-strong);
 }
 
 .api-docs-page.is-dark .swagger-ui .btn.btn-clear:hover,
 .api-docs-page.is-dark .swagger-ui .btn-clear:hover,
 .api-docs-page.is-dark .swagger-ui .try-out__btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: color-mix(in srgb, var(--ant-color-text) 10%, transparent);
 }
 
 .api-docs-page.is-dark .swagger-ui .filter .operation-filter-input {
@@ -354,11 +356,11 @@
 }
 
 .api-docs-page.is-dark .swagger-ui a:hover {
-  color: #79b9ff;
+  color: color-mix(in srgb, var(--sw-accent) 75%, var(--ant-color-text));
 }
 
 .api-docs-page.is-dark .swagger-ui .info .title small {
-  background: rgba(255, 255, 255, 0.08);
+  background: color-mix(in srgb, var(--ant-color-text) 8%, transparent);
   color: var(--sw-text);
 }
 
@@ -367,7 +369,7 @@
 }
 
 .api-docs-page.is-dark .swagger-ui .response-control-media-type--accept-controller select {
-  border-color: rgba(82, 196, 26, 0.5);
+  border-color: color-mix(in srgb, var(--ant-color-success) 50%, transparent);
 }
 
 .api-docs-page.is-dark .swagger-ui .loading-container .loading:before {
@@ -411,8 +413,8 @@
 }
 
 .api-docs-page.is-dark .swagger-ui .errors-wrapper {
-  background: rgba(255, 77, 79, 0.08);
-  border-color: rgba(255, 77, 79, 0.3);
+  background: color-mix(in srgb, var(--ant-color-error) 8%, transparent);
+  border-color: color-mix(in srgb, var(--ant-color-error) 30%, transparent);
 }
 
 .api-docs-page.is-dark .swagger-ui .errors-wrapper .errors h4,
