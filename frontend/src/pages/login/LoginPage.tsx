@@ -1,3 +1,4 @@
+```tsx
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -8,7 +9,6 @@ import {
   Layout,
   Menu,
   Popover,
-  Space,
   Spin,
   message,
 } from 'antd';
@@ -27,7 +27,11 @@ import { HttpUtil, LanguageManager } from '@/utils';
 import { FormField, rhfZodValidate } from '@/components/form/rhf';
 import { setMessageInstance } from '@/utils/messageBus';
 import { pauseAnimationsUntilLeave, useTheme } from '@/hooks/useTheme';
-import { LoginFormSchema, TwoFactorCodeSchema, type LoginFormValues } from '@/schemas/login';
+import {
+  LoginFormSchema,
+  TwoFactorCodeSchema,
+  type LoginFormValues,
+} from '@/schemas/login';
 import './LoginPage.css';
 
 const HEADLINE_INTERVAL_MS = 2000;
@@ -38,7 +42,15 @@ const basePath = window.X_UI_BASE_PATH || '';
 
 export default function LoginPage() {
   const { t } = useTranslation();
-  const { isDark, isUltra, toggleTheme, toggleUltra, antdThemeConfig } = useTheme();
+
+  const {
+    isDark,
+    isUltra,
+    toggleTheme,
+    toggleUltra,
+    antdThemeConfig,
+  } = useTheme();
+
   const [messageApi, messageContextHolder] = message.useMessage();
 
   useEffect(() => {
@@ -49,87 +61,232 @@ export default function LoginPage() {
   const [submitting, setSubmitting] = useState(false);
   const [twoFactorEnable, setTwoFactorEnable] = useState(false);
   const [headlineIndex, setHeadlineIndex] = useState(0);
-  const methods = useForm<LoginForm>({ defaultValues: { username: '', password: '', twoFactorCode: '' } });
-  const [lang, setLang] = useState<string>(() => LanguageManager.getLanguage());
+
+  const methods = useForm<LoginForm>({
+    defaultValues: {
+      username: '',
+      password: '',
+      twoFactorCode: '',
+    },
+  });
+
+  const [lang, setLang] = useState(() =>
+    LanguageManager.getLanguage(),
+  );
+
+  /*
+   * -------------------------------------------------------
+   * Login headline
+   * -------------------------------------------------------
+   */
 
   const headlineWords = useMemo(
-    () => [t('pages.login.hello'), t('pages.login.title')],
+    () => [
+      t('pages.login.hello'),
+      t('pages.login.title'),
+    ],
     [t],
   );
 
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setHeadlineIndex((i) => (i + 1) % headlineWords.length);
+      setHeadlineIndex(
+        (index) => (index + 1) % headlineWords.length,
+      );
     }, HEADLINE_INTERVAL_MS);
-    return () => window.clearInterval(timer);
+
+    return () => {
+      window.clearInterval(timer);
+    };
   }, [headlineWords.length]);
+
+  /*
+   * -------------------------------------------------------
+   * Fetch 2FA state
+   * -------------------------------------------------------
+   */
 
   useEffect(() => {
     let cancelled = false;
+
     (async () => {
-      const msg = await HttpUtil.post('/getTwoFactorEnable');
-      if (cancelled) return;
-      if (msg.success) setTwoFactorEnable(!!msg.obj);
-      setFetched(true);
+      try {
+        const msg = await HttpUtil.post('/getTwoFactorEnable');
+
+        if (cancelled) return;
+
+        if (msg.success) {
+          setTwoFactorEnable(!!msg.obj);
+        }
+      } finally {
+        if (!cancelled) {
+          setFetched(true);
+        }
+      }
     })();
-    return () => { cancelled = true; };
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
+
+  /*
+   * -------------------------------------------------------
+   * Login
+   * -------------------------------------------------------
+   */
 
   const onSubmit = useCallback(async (values: LoginForm) => {
     setSubmitting(true);
+
     try {
       const msg = await HttpUtil.post('/login', values);
-      if (msg.success) window.location.href = basePath + 'panel/';
+
+      if (msg.success) {
+        window.location.href = `${basePath}panel/`;
+      }
     } finally {
       setSubmitting(false);
     }
   }, []);
+
+  /*
+   * -------------------------------------------------------
+   * Language
+   * -------------------------------------------------------
+   */
 
   const onLangChange = useCallback((next: string) => {
     setLang(next);
     LanguageManager.setLanguage(next);
   }, []);
 
+  /*
+   * -------------------------------------------------------
+   * Theme cycle
+   *
+   * Light
+   *   ↓
+   * Dark
+   *   ↓
+   * Ultra Dark
+   *   ↓
+   * Light
+   * -------------------------------------------------------
+   */
+
   const cycleTheme = useCallback(() => {
     pauseAnimationsUntilLeave('login-theme-cycle');
+
     if (!isDark) {
       toggleTheme();
-      if (isUltra) toggleUltra();
-    } else if (!isUltra) {
-      toggleUltra();
-    } else {
-      toggleUltra();
-      toggleTheme();
+
+      if (isUltra) {
+        toggleUltra();
+      }
+
+      return;
     }
-  }, [isDark, isUltra, toggleTheme, toggleUltra]);
+
+    if (!isUltra) {
+      toggleUltra();
+      return;
+    }
+
+    toggleUltra();
+    toggleTheme();
+  }, [
+    isDark,
+    isUltra,
+    toggleTheme,
+    toggleUltra,
+  ]);
+
+  /*
+   * -------------------------------------------------------
+   * Page classes
+   * -------------------------------------------------------
+   */
 
   const pageClass = useMemo(() => {
     const classes = ['login-app'];
-    if (isDark) classes.push('is-dark');
-    if (isUltra) classes.push('is-ultra');
+
+    if (isDark) {
+      classes.push('is-dark');
+    }
+
+    if (isUltra) {
+      classes.push('is-ultra');
+    }
+
     return classes.join(' ');
   }, [isDark, isUltra]);
 
+  /*
+   * -------------------------------------------------------
+   * Language menu
+   * -------------------------------------------------------
+   */
+
   const langMenuItems = useMemo(
-    () => (LanguageManager.supportedLanguages as { value: string; name: string; icon: string }[]).map((l) => ({
-      key: l.value,
-      label: (
-        <Space size={8}>
-          <span aria-hidden="true">{l.icon}</span>
-          <span>{l.name}</span>
-        </Space>
-      ),
-    })),
+    () =>
+      (
+        LanguageManager.supportedLanguages as {
+          value: string;
+          name: string;
+          icon: string;
+        }[]
+      ).map((language) => ({
+        key: language.value,
+        label: (
+          <span
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 9,
+            }}
+          >
+            <span
+              aria-hidden="true"
+              style={{
+                fontSize: 16,
+                lineHeight: 1,
+              }}
+            >
+              {language.icon}
+            </span>
+
+            <span>{language.name}</span>
+          </span>
+        ),
+      })),
     [],
   );
 
-  const themeIcon = !isDark ? <SunOutlined /> : !isUltra ? <MoonOutlined /> : <MoonFilled />;
+  /*
+   * -------------------------------------------------------
+   * Theme icon
+   * -------------------------------------------------------
+   */
+
+  const themeIcon = !isDark ? (
+    <MoonOutlined />
+  ) : !isUltra ? (
+    <MoonFilled />
+  ) : (
+    <SunOutlined />
+  );
 
   return (
     <ConfigProvider theme={antdThemeConfig}>
-      {messageContextHolder}
       <Layout className={pageClass}>
+        {messageContextHolder}
+
         <Layout.Content className="login-content">
+          {/* -------------------------------------------------
+              Toolbar
+          -------------------------------------------------- */}
+
           <div className="login-toolbar">
             <Button
               id="login-theme-cycle"
@@ -141,19 +298,31 @@ export default function LoginPage() {
               icon={themeIcon}
               onClick={cycleTheme}
             />
+
             <Popover
               rootClassName={isDark ? 'dark' : 'light'}
               placement="bottomRight"
               trigger="click"
-              styles={{ content: { padding: 4 } }}
+              styles={{
+                content: {
+                  padding: 5,
+                  borderRadius: 16,
+                },
+              }}
               content={
                 <Menu
                   mode="vertical"
                   selectable
                   selectedKeys={[lang]}
                   items={langMenuItems}
-                  onClick={({ key }) => onLangChange(key)}
-                  style={{ border: 'none', minWidth: 160 }}
+                  onClick={({ key }) =>
+                    onLangChange(key)
+                  }
+                  style={{
+                    border: 'none',
+                    minWidth: 170,
+                    background: 'transparent',
+                  }}
                 />
               }
             >
@@ -161,11 +330,20 @@ export default function LoginPage() {
                 shape="circle"
                 size="large"
                 className="toolbar-btn"
-                aria-label={t('pages.settings.language')}
+                aria-label={t(
+                  'pages.settings.language',
+                )}
+                title={t(
+                  'pages.settings.language',
+                )}
                 icon={<TranslationOutlined />}
               />
             </Popover>
           </div>
+
+          {/* -------------------------------------------------
+              Login wrapper
+          -------------------------------------------------- */}
 
           <div className="login-wrapper">
             {!fetched ? (
@@ -174,30 +352,61 @@ export default function LoginPage() {
               </div>
             ) : (
               <div className="login-card">
+                {/* -------------------------------------------------
+                    Brand
+                -------------------------------------------------- */}
+
                 <div className="brand">
-                  <span className="brand-name">IDONT-PANEL</span>
-                  <span className="brand-accent" aria-hidden="true" />
+                  <span className="brand-name">
+                    IDONT-PANEL
+                  </span>
+
+                  <span
+                    className="brand-accent"
+                    aria-hidden="true"
+                  />
                 </div>
+
+                {/* -------------------------------------------------
+                    Animated headline
+                -------------------------------------------------- */}
+
                 <h2 className="welcome">
-                  <b key={headlineIndex}>{headlineWords[headlineIndex]}</b>
+                  <b key={headlineIndex}>
+                    {headlineWords[headlineIndex]}
+                  </b>
                 </h2>
+
+                {/* -------------------------------------------------
+                    Login form
+                -------------------------------------------------- */}
 
                 <FormProvider {...methods}>
                   <Form
                     layout="vertical"
                     className="login-form"
-                    onFinish={methods.handleSubmit(onSubmit)}
+                    onFinish={methods.handleSubmit(
+                      onSubmit,
+                    )}
                   >
                     <FormField
                       name="username"
                       label={t('username')}
-                      rules={{ validate: rhfZodValidate(LoginFormSchema.shape.username) }}
+                      rules={{
+                        validate:
+                          rhfZodValidate(
+                            LoginFormSchema.shape
+                              .username,
+                          ),
+                      }}
                     >
                       <Input
                         prefix={<UserOutlined />}
                         autoComplete="username"
                         size="large"
-                        placeholder={t('username')}
+                        placeholder={t(
+                          'username',
+                        )}
                         autoFocus
                       />
                     </FormField>
@@ -205,27 +414,44 @@ export default function LoginPage() {
                     <FormField
                       name="password"
                       label={t('password')}
-                      rules={{ validate: rhfZodValidate(LoginFormSchema.shape.password) }}
+                      rules={{
+                        validate:
+                          rhfZodValidate(
+                            LoginFormSchema.shape
+                              .password,
+                          ),
+                      }}
                     >
                       <Input.Password
                         prefix={<LockOutlined />}
                         autoComplete="current-password"
                         size="large"
-                        placeholder={t('password')}
+                        placeholder={t(
+                          'password',
+                        )}
                       />
                     </FormField>
 
                     {twoFactorEnable && (
                       <FormField
                         name="twoFactorCode"
-                        label={t('twoFactorCode')}
-                        rules={{ validate: rhfZodValidate(TwoFactorCodeSchema) }}
+                        label={t(
+                          'twoFactorCode',
+                        )}
+                        rules={{
+                          validate:
+                            rhfZodValidate(
+                              TwoFactorCodeSchema,
+                            ),
+                        }}
                       >
                         <Input
                           prefix={<KeyOutlined />}
                           autoComplete="one-time-code"
                           size="large"
-                          placeholder={t('twoFactorCode')}
+                          placeholder={t(
+                            'twoFactorCode',
+                          )}
                         />
                       </FormField>
                     )}
@@ -251,3 +477,4 @@ export default function LoginPage() {
     </ConfigProvider>
   );
 }
+```
