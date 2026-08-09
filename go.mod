@@ -1,4 +1,4 @@
-module github.com/mhsanaei/3x-ui/v3
+module github.com/durwinam/idont-panel/v1
 
 go 1.26.5
 
