@@ -15,7 +15,7 @@
         "args": [
           "build",
           "-o",
-          "bin/3x-ui.exe",
+          "bin/idont-panel.exe",
           "./main.go"
         ]
       },
