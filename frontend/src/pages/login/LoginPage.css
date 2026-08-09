@@ -1,197 +1,446 @@
+```css
+/* =========================================================
+   MODERN GLASS LOGIN
+   Dark / Aurora / Frosted Glass
+   ========================================================= */
+
 .login-app {
-  --bg-page: #eef2ff;
-  --bg-card: rgba(255, 255, 255, 0.72);
-  --bg-card-solid: #ffffff;
-  --color-text: rgba(0, 0, 0, 0.88);
-  --color-text-subtle: rgba(0, 0, 0, 0.55);
-  --color-accent: #6366f1;
-  --color-border: rgba(255, 255, 255, 0.6);
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 18px 50px rgba(99, 102, 241, 0.18);
-  --blob-1: rgba(99, 102, 241, 0.55);
-  --blob-2: rgba(236, 72, 153, 0.50);
-  --blob-3: rgba(20, 184, 166, 0.40);
-  --blob-4: rgba(251, 191, 36, 0.35);
-  --blob-5: rgba(56, 189, 248, 0.40);
-  --grid-color: rgba(99, 102, 241, 0.06);
-  --vignette: radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.05) 100%);
+  --bg-page: #080b14;
+
+  --bg-card: rgba(17, 22, 38, 0.34);
+  --bg-card-solid: #111625;
+
+  --color-text: rgba(255, 255, 255, 0.96);
+  --color-text-subtle: rgba(226, 232, 240, 0.62);
+
+  --color-accent: #8b5cf6;
+  --color-accent-2: #22d3ee;
+  --color-accent-3: #ec4899;
+
+  --color-border: rgba(255, 255, 255, 0.14);
+
+  --shadow-card:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 30px 90px rgba(76, 29, 149, 0.22);
+
+  --blob-1: rgba(139, 92, 246, 0.32);
+  --blob-2: rgba(236, 72, 153, 0.24);
+  --blob-3: rgba(34, 211, 238, 0.22);
+  --blob-4: rgba(59, 130, 246, 0.18);
+  --blob-5: rgba(168, 85, 247, 0.20);
+
+  --grid-color: rgba(255, 255, 255, 0.025);
+
+  --vignette:
+    radial-gradient(
+      ellipse at center,
+      transparent 25%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
 
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  background: linear-gradient(135deg, #eef2ff 0%, #fdf2f8 50%, #ecfeff 100%);
+
+  color: var(--color-text);
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(124, 58, 237, 0.20),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(6, 182, 212, 0.14),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #050711 0%,
+      #0a0d19 42%,
+      #080b16 70%,
+      #050711 100%
+    );
 }
+
+/* ---------------------------------------------------------
+   Ultra dark mode
+   --------------------------------------------------------- */
 
 .login-app.is-dark {
-  --bg-page: #0d1117;
-  --bg-card: rgba(28, 30, 36, 0.55);
-  --bg-card-solid: #1c1e22;
-  --color-text: rgba(255, 255, 255, 0.92);
-  --color-text-subtle: rgba(255, 255, 255, 0.55);
-  --color-accent: #3b82f6;
-  --color-border: rgba(255, 255, 255, 0.10);
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 20px 60px rgba(59, 130, 246, 0.22);
-  --blob-1: rgba(96, 165, 250, 0.42);
-  --blob-2: rgba(59, 130, 246, 0.42);
-  --blob-3: rgba(37, 99, 235, 0.35);
-  --blob-4: rgba(251, 146, 60, 0.18);
-  --blob-5: rgba(129, 140, 248, 0.30);
-  --grid-color: rgba(255, 255, 255, 0.04);
-  --vignette: radial-gradient(ellipse at center, transparent 25%, rgba(0, 0, 0, 0.5) 100%);
-  background: radial-gradient(ellipse at 25% 20%, #152038 0%, #0d1117 60%);
+  --bg-page: #05060b;
+
+  --bg-card: rgba(13, 17, 30, 0.30);
+  --bg-card-solid: #0e1220;
+
+  --color-text: rgba(255, 255, 255, 0.96);
+  --color-text-subtle: rgba(226, 232, 240, 0.60);
+
+  --color-accent: #a78bfa;
+  --color-accent-2: #22d3ee;
+  --color-accent-3: #f472b6;
+
+  --color-border: rgba(255, 255, 255, 0.12);
+
+  --shadow-card:
+    0 10px 40px rgba(0, 0, 0, 0.55),
+    0 30px 100px rgba(79, 70, 229, 0.20);
+
+  --blob-1: rgba(124, 58, 237, 0.28);
+  --blob-2: rgba(219, 39, 119, 0.20);
+  --blob-3: rgba(8, 145, 178, 0.20);
+  --blob-4: rgba(37, 99, 235, 0.18);
+  --blob-5: rgba(147, 51, 234, 0.18);
+
+  --grid-color: rgba(255, 255, 255, 0.022);
+
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      #16102d 0%,
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 85% 90%,
+      #071c28 0%,
+      transparent 38%
+    ),
+    #05060b;
 }
 
+/* ---------------------------------------------------------
+   Ultra mode
+   --------------------------------------------------------- */
+
 .login-app.is-dark.is-ultra {
-  --bg-page: #000;
-  --bg-card: rgba(15, 17, 28, 0.6);
-  --bg-card-solid: #101013;
-  --color-border: rgba(255, 255, 255, 0.06);
-  --blob-1: rgba(99, 102, 241, 0.30);
-  --blob-2: rgba(236, 72, 153, 0.22);
-  --blob-3: rgba(34, 211, 238, 0.20);
-  --blob-4: rgba(251, 146, 60, 0.15);
-  --blob-5: rgba(168, 85, 247, 0.25);
-  --grid-color: rgba(255, 255, 255, 0.025);
-  --vignette: radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.8) 100%);
-  background: radial-gradient(ellipse at 25% 20%, #0a0a1a 0%, #000 60%);
+  --bg-page: #000000;
+
+  --bg-card: rgba(8, 10, 18, 0.28);
+  --bg-card-solid: #080a12;
+
+  --color-border: rgba(255, 255, 255, 0.085);
+
+  --blob-1: rgba(124, 58, 237, 0.22);
+  --blob-2: rgba(236, 72, 153, 0.15);
+  --blob-3: rgba(34, 211, 238, 0.14);
+  --blob-4: rgba(59, 130, 246, 0.13);
+  --blob-5: rgba(168, 85, 247, 0.16);
+
+  --grid-color: rgba(255, 255, 255, 0.018);
+
+  background:
+    radial-gradient(
+      circle at 20% 15%,
+      #100a24 0%,
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 80% 85%,
+      #06151b 0%,
+      transparent 38%
+    ),
+    #000;
 }
+
+/* ---------------------------------------------------------
+   Ambient light blobs
+   --------------------------------------------------------- */
 
 .login-app::before,
 .login-app::after {
   content: '';
+
   position: absolute;
-  width: 70vw;
-  height: 70vw;
-  max-width: 900px;
-  max-height: 900px;
+
+  width: 65vw;
+  height: 65vw;
+
+  max-width: 850px;
+  max-height: 850px;
+
   border-radius: 50%;
-  filter: blur(100px);
+
+  filter: blur(110px);
+
   pointer-events: none;
+
   z-index: 0;
+
+  opacity: 0.85;
+
   will-change: transform;
 }
 
 .login-app::before {
   top: -25vw;
   left: -20vw;
-  background: radial-gradient(circle, var(--blob-1) 0%, transparent 65%);
-  animation: blob-drift-a 24s ease-in-out infinite alternate;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--blob-1) 0%,
+      transparent 68%
+    );
+
+  animation:
+    aurora-a 26s ease-in-out infinite alternate;
 }
 
 .login-app::after {
+  right: -22vw;
   bottom: -25vw;
-  right: -20vw;
-  background: radial-gradient(circle, var(--blob-2) 0%, transparent 65%);
-  animation: blob-drift-b 30s ease-in-out infinite alternate;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--blob-2) 0%,
+      transparent 68%
+    );
+
+  animation:
+    aurora-b 32s ease-in-out infinite alternate;
 }
+
+/* ---------------------------------------------------------
+   Additional aurora layers
+   --------------------------------------------------------- */
 
 .login-content::before {
   content: '';
+
   position: absolute;
-  top: 30%;
+
+  top: 35%;
   left: 50%;
-  width: 50vw;
-  height: 50vw;
-  max-width: 700px;
-  max-height: 700px;
+
+  width: 55vw;
+  height: 55vw;
+
+  max-width: 720px;
+  max-height: 720px;
+
   border-radius: 50%;
-  background: radial-gradient(circle, var(--blob-3) 0%, transparent 65%);
-  filter: blur(100px);
+
+  background:
+    radial-gradient(
+      circle,
+      var(--blob-3) 0%,
+      transparent 68%
+    );
+
+  filter: blur(115px);
+
   pointer-events: none;
+
   z-index: 0;
-  will-change: transform;
-  animation: blob-drift-c 36s ease-in-out infinite alternate;
+
+  animation:
+    aurora-c 38s ease-in-out infinite alternate;
 }
 
 .login-content::after {
   content: '';
+
   position: absolute;
-  top: 10%;
-  right: 15%;
-  width: 35vw;
-  height: 35vw;
-  max-width: 500px;
-  max-height: 500px;
+
+  top: 5%;
+  right: 10%;
+
+  width: 38vw;
+  height: 38vw;
+
+  max-width: 520px;
+  max-height: 520px;
+
   border-radius: 50%;
-  background: radial-gradient(circle, var(--blob-4) 0%, transparent 65%);
-  filter: blur(90px);
+
+  background:
+    radial-gradient(
+      circle,
+      var(--blob-4) 0%,
+      transparent 68%
+    );
+
+  filter: blur(105px);
+
   pointer-events: none;
+
   z-index: 0;
-  will-change: transform;
-  animation: blob-drift-d 28s ease-in-out infinite alternate;
+
+  animation:
+    aurora-d 30s ease-in-out infinite alternate;
 }
 
 .login-wrapper::before {
   content: '';
+
   position: absolute;
-  bottom: 5%;
-  left: 10%;
-  width: 35vw;
-  height: 35vw;
-  max-width: 500px;
-  max-height: 500px;
+
+  bottom: 0;
+  left: 5%;
+
+  width: 38vw;
+  height: 38vw;
+
+  max-width: 520px;
+  max-height: 520px;
+
   border-radius: 50%;
-  background: radial-gradient(circle, var(--blob-5) 0%, transparent 65%);
-  filter: blur(90px);
+
+  background:
+    radial-gradient(
+      circle,
+      var(--blob-5) 0%,
+      transparent 68%
+    );
+
+  filter: blur(105px);
+
   pointer-events: none;
+
   z-index: 0;
-  will-change: transform;
-  animation: blob-drift-e 32s ease-in-out infinite alternate;
+
+  animation:
+    aurora-e 34s ease-in-out infinite alternate;
 }
+
+/* ---------------------------------------------------------
+   Subtle futuristic grid
+   --------------------------------------------------------- */
 
 .login-wrapper::after {
   content: '';
+
   position: absolute;
   inset: 0;
+
   background-image:
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(
+      var(--grid-color) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      var(--grid-color) 1px,
+      transparent 1px
+    );
+
+  background-size: 56px 56px;
+
   background-position: center;
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 20%,
+      transparent 78%
+    );
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 20%,
+      transparent 78%
+    );
+
   pointer-events: none;
+
   z-index: 0;
 }
 
-@keyframes blob-drift-a {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(18vw, 10vh) scale(1.15); }
-  100% { transform: translate(34vw, 22vh) scale(1.25); }
+/* ---------------------------------------------------------
+   Aurora animations
+   --------------------------------------------------------- */
+
+@keyframes aurora-a {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(16vw, 8vh) scale(1.14);
+  }
+
+  100% {
+    transform: translate(30vw, 20vh) scale(1.22);
+  }
 }
 
-@keyframes blob-drift-b {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-16vw, -10vh) scale(1.12); }
-  100% { transform: translate(-30vw, -22vh) scale(1.2); }
+@keyframes aurora-b {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-14vw, -8vh) scale(1.12);
+  }
+
+  100% {
+    transform: translate(-28vw, -20vh) scale(1.20);
+  }
 }
 
-@keyframes blob-drift-c {
-  0% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-20%, -20%) scale(1.1); }
-  100% { transform: translate(-80%, -10%) scale(1.05); }
+@keyframes aurora-c {
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  50% {
+    transform: translate(-20%, -25%) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-75%, -5%) scale(1.15);
+  }
 }
 
-@keyframes blob-drift-d {
-  0% { transform: translate(0, 0) scale(0.9); }
-  50% { transform: translate(-12vw, 14vh) scale(1.05); }
-  100% { transform: translate(8vw, -8vh) scale(1.1); }
+@keyframes aurora-d {
+  0% {
+    transform: translate(0, 0) scale(0.90);
+  }
+
+  50% {
+    transform: translate(-10vw, 12vh) scale(1.08);
+  }
+
+  100% {
+    transform: translate(8vw, -8vh) scale(1.15);
+  }
 }
 
-@keyframes blob-drift-e {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(14vw, -8vh) scale(1.1); }
-  100% { transform: translate(-6vw, 12vh) scale(1.15); }
+@keyframes aurora-e {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(12vw, -7vh) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-5vw, 10vh) scale(1.15);
+  }
 }
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   .login-app::before,
   .login-app::after,
   .login-content::before,
   .login-content::after,
-  .login-wrapper::before {
+  .login-wrapper::before,
+  .welcome b {
     animation: none;
   }
 }
+
+/* ---------------------------------------------------------
+   Ant Design layout
+   --------------------------------------------------------- */
 
 .login-app .ant-layout-content {
   background: transparent;
@@ -206,169 +455,477 @@
   z-index: 1;
 }
 
+/* ---------------------------------------------------------
+   Toolbar
+   --------------------------------------------------------- */
+
 .login-toolbar {
   position: fixed;
-  top: 16px;
-  right: 16px;
+
+  top: 18px;
+  right: 18px;
+
   z-index: 10;
+
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+
+  gap: 9px;
 }
 
 .toolbar-btn {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+
   padding: 0;
+
+  border-radius: 14px !important;
+
+  color: rgba(255, 255, 255, 0.82) !important;
+
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12) !important;
+
+  -webkit-backdrop-filter:
+    blur(18px) saturate(160%);
+
+  backdrop-filter:
+    blur(18px) saturate(160%);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.20);
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.toolbar-btn:hover {
+  color: #ffffff !important;
+
+  background:
+    rgba(139, 92, 246, 0.18) !important;
+
+  border-color:
+    rgba(167, 139, 250, 0.40) !important;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 35px rgba(124, 58, 237, 0.22);
 }
 
 .toolbar-btn .anticon {
   font-size: 18px;
 }
 
+/* ---------------------------------------------------------
+   Wrapper
+   --------------------------------------------------------- */
+
 .login-wrapper {
   position: relative;
+
   min-height: 100vh;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
-  padding: 24px 16px;
+
+  padding: 32px 18px;
 }
 
 .login-loading {
   text-align: center;
 }
 
+/* ---------------------------------------------------------
+   GLASS CARD
+   --------------------------------------------------------- */
+
 .login-card {
   position: relative;
+
   width: 100%;
-  max-width: 400px;
-  background: var(--bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-  padding: 40px 32px 28px;
-  box-shadow: var(--shadow-card);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  backdrop-filter: blur(24px) saturate(180%);
+  max-width: 410px;
+
+  padding: 42px 34px 30px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.095),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.30),
+    0 40px 100px rgba(76, 29, 149, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  -webkit-backdrop-filter:
+    blur(32px) saturate(180%);
+
+  backdrop-filter:
+    blur(32px) saturate(180%);
+
+  overflow: hidden;
+
   z-index: 2;
 }
 
+/* Glass reflection */
+
 .login-card::before {
   content: '';
+
   position: absolute;
+
   inset: 0;
-  border-radius: 20px;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0) 40%,
-    rgba(99, 102, 241, 0.25) 80%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      125deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.035) 24%,
+      transparent 48%,
+      rgba(139, 92, 246, 0.055) 78%,
+      rgba(34, 211, 238, 0.08) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+/* Inner glass border */
+
+.login-card::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 1px;
+
+  border-radius: 27px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.045);
+
   pointer-events: none;
 }
 
-.login-app.is-dark .login-card::before {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.15),
-    rgba(255, 255, 255, 0) 40%,
-    rgba(59, 130, 246, 0.40) 80%
-  );
-}
+/* ---------------------------------------------------------
+   Mobile card
+   --------------------------------------------------------- */
 
 @media (max-width: 480px) {
+  .login-wrapper {
+    padding: 20px 12px;
+  }
+
   .login-card {
-    padding: 32px 20px 24px;
+    max-width: 100%;
+
+    padding: 34px 22px 26px;
+
+    border-radius: 24px;
   }
 }
 
+/* ---------------------------------------------------------
+   Brand
+   --------------------------------------------------------- */
+
 .brand {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+
+  gap: 11px;
+
+  margin-bottom: 10px;
 }
 
 .brand-name {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--color-text);
-  background: linear-gradient(135deg, var(--color-accent), #ec4899);
+  font-size: 29px;
+
+  font-weight: 750;
+
+  letter-spacing: 2px;
+
+  color: transparent;
+
+  background:
+    linear-gradient(
+      120deg,
+      #c4b5fd 0%,
+      #a78bfa 35%,
+      #22d3ee 100%
+    );
+
   -webkit-background-clip: text;
   background-clip: text;
+
   -webkit-text-fill-color: transparent;
+
+  filter:
+    drop-shadow(
+      0 0 22px rgba(139, 92, 246, 0.20)
+    );
 }
 
 .login-app.is-dark .brand-name {
-  background: linear-gradient(135deg, #60a5fa, #1d4ed8);
+  background:
+    linear-gradient(
+      120deg,
+      #ddd6fe 0%,
+      #a78bfa 38%,
+      #67e8f9 100%
+    );
+
   -webkit-background-clip: text;
   background-clip: text;
+
   -webkit-text-fill-color: transparent;
 }
 
 .brand-accent {
   display: block;
-  width: 40px;
+
+  width: 54px;
   height: 3px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--color-accent), #ec4899);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8b5cf6,
+      #22d3ee
+    );
+
+  box-shadow:
+    0 0 18px rgba(139, 92, 246, 0.45),
+    0 0 30px rgba(34, 211, 238, 0.18);
 }
 
-.login-app.is-dark .brand-accent {
-  background: linear-gradient(90deg, #60a5fa, #1d4ed8);
-}
+/* ---------------------------------------------------------
+   Welcome
+   --------------------------------------------------------- */
 
 .welcome {
   text-align: center;
+
   color: var(--color-text);
+
   font-size: 32px;
-  font-weight: 700;
+
+  font-weight: 720;
+
   line-height: 1.2;
+
   min-height: 42px;
-  margin: 12px 0 28px;
-  letter-spacing: 0.3px;
+
+  margin: 14px 0 30px;
+
+  letter-spacing: 0.2px;
+
+  text-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.18);
 }
 
 .welcome b {
   display: inline-block;
+
   font-weight: inherit;
-  animation: headline-in 280ms ease both;
+
+  animation:
+    headline-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes headline-in {
-  0% { opacity: 0; transform: translateY(6px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
 
-@media (prefers-reduced-motion: reduce) {
-  .welcome b {
-    animation: none;
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
+/* ---------------------------------------------------------
+   Form
+   --------------------------------------------------------- */
+
 .login-form .ant-form-item-label > label {
-  color: var(--color-text);
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+
+  font-weight: 550;
 }
+
+/* Glass inputs */
+
+.login-form .ant-input,
+.login-form .ant-input-affix-wrapper {
+  color: rgba(255, 255, 255, 0.94) !important;
+
+  background:
+    rgba(255, 255, 255, 0.045) !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.105) !important;
+
+  border-radius: 13px !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  backdrop-filter:
+    blur(12px);
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.login-form .ant-input::placeholder {
+  color:
+    rgba(255, 255, 255, 0.35);
+}
+
+.login-form .ant-input:hover,
+.login-form .ant-input-affix-wrapper:hover {
+  border-color:
+    rgba(167, 139, 250, 0.40) !important;
+
+  background:
+    rgba(255, 255, 255, 0.065) !important;
+}
+
+.login-form .ant-input:focus,
+.login-form .ant-input-affix-wrapper-focused {
+  border-color:
+    rgba(139, 92, 246, 0.72) !important;
+
+  background:
+    rgba(255, 255, 255, 0.07) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.12),
+    0 0 28px rgba(124, 58, 237, 0.10) !important;
+}
+
+/* Autofill */
 
 .login-form input.ant-input:-webkit-autofill,
 .login-form input.ant-input:-webkit-autofill:hover,
 .login-form input.ant-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--color-text) !important;
-  -webkit-box-shadow: 0 0 0 1000px var(--bg-card-solid) inset !important;
-  box-shadow: 0 0 0 1000px var(--bg-card-solid) inset !important;
-  transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+  -webkit-text-fill-color:
+    rgba(255, 255, 255, 0.94) !important;
+
+  -webkit-box-shadow:
+    0 0 0 1000px #111625 inset !important;
+
+  box-shadow:
+    0 0 0 1000px #111625 inset !important;
+
+  transition:
+    background-color 9999s ease-in-out 0s,
+    color 9999s ease-in-out 0s;
 }
+
+/* ---------------------------------------------------------
+   Submit
+   --------------------------------------------------------- */
 
 .submit-row {
   margin-bottom: 0;
 }
 
+.submit-row .ant-btn {
+  border: 0;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed 0%,
+      #8b5cf6 42%,
+      #06b6d4 100%
+    );
+
+  box-shadow:
+    0 8px 25px rgba(124, 58, 237, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.submit-row .ant-btn:hover {
+  filter: brightness(1.08);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 34px rgba(124, 58, 237, 0.40),
+    0 0 25px rgba(34, 211, 238, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.submit-row .ant-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------
+   Small screens
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+  .login-toolbar {
+    top: 12px;
+    right: 12px;
+  }
+
+  .toolbar-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .brand-name {
+    font-size: 26px;
+  }
+
+  .welcome {
+    font-size: 28px;
+    margin-bottom: 26px;
+  }
+}
+```
