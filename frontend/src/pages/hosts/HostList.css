@@ -10,6 +10,7 @@
 
 .host-remark {
   font-weight: 500;
+  color: var(--ant-color-text);
 }
 
 .host-desc {
@@ -18,17 +19,16 @@
 }
 
 .host-endpoint {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
   font-size: 0.92em;
+  color: var(--ant-color-text);
 }
 
 .host-muted {
   color: var(--ant-color-text-quaternary);
 }
 
-/* card-toolbar is shared with the Clients/Inbounds list cards, but its rules
-   live in a lazily-loaded page stylesheet — re-declare here so the Hosts page
-   renders correctly when opened directly. */
+/* Shared card toolbar */
 .hosts-card .card-toolbar {
   display: flex;
   align-items: center;
@@ -43,11 +43,8 @@
   }
 }
 
-/* Empty-table state. The shared .card-empty rule otherwise lives only in the
-   lazily-loaded Clients/Inbounds/Nodes stylesheets, so a direct /hosts refresh
-   would render it unstyled (faint + uncentered) until another page is visited.
-   Re-declare it here so it's correct on first load. */
-.card-empty {
+/* Empty state */
+.hosts-card .card-empty {
   text-align: center;
   color: var(--ant-color-text-secondary);
   padding: 24px 12px;
