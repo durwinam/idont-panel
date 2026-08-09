@@ -1,774 +1,662 @@
+```css
 /* =========================================================
-SIDEBAR — AURORA GLASS
-========================================================= */
+   SIDEBAR — iOS 26 LIQUID GLASS
+   ========================================================= */
 
 .ant-sidebar {
-flex:
-0 0 var(--sider-rail, 72px);
-
-width:
-var(--sider-rail, 72px);
-
-position:
-relative;
-
-z-index:
-210;
+  flex: 0 0 var(--sider-rail, 72px);
+  width: var(--sider-rail, 72px);
+  position: relative;
+  z-index: 210;
 }
 
 /* =========================================================
-SIDEBAR CONTAINER
-========================================================= */
+   SIDEBAR CONTAINER — LIQUID GLASS
+   ========================================================= */
 
 .ant-sidebar > .ant-layout-sider {
-position:
-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-self: flex-start;
 
-top:
-0;
+  /* Liquid glass */
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.42),
+      rgba(255, 255, 255, 0.18)
+    ) !important;
 
-height:
-100vh;
+  border-right: 1px solid rgba(255, 255, 255, 0.55);
 
-align-self:
-flex-start;
+  -webkit-backdrop-filter:
+    blur(32px) saturate(180%) contrast(105%);
+  backdrop-filter:
+    blur(32px) saturate(180%) contrast(105%);
 
-background:
-rgba(255, 255, 255, 0.28) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.10) inset,
+    1px 0 0 rgba(255, 255, 255, 0.35) inset,
+    12px 0 40px rgba(30, 41, 90, 0.08),
+    0 12px 45px rgba(30, 41, 90, 0.06);
 
-border-right:
-1px solid rgba(255, 255, 255, 0.42);
+  overflow: hidden;
+}
 
--webkit-backdrop-filter:
-blur(26px) saturate(160%);
+/* Top glass highlight */
+.ant-sidebar > .ant-layout-sider::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 
-backdrop-filter:
-blur(26px) saturate(160%);
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.32),
+      transparent 28%,
+      transparent 70%,
+      rgba(255, 255, 255, 0.08)
+    );
 
-box-shadow:
-12px 0 45px rgba(67, 56, 130, 0.08),
-inset -1px 0 0 rgba(255, 255, 255, 0.35);
-
-overflow:
-hidden;
+  opacity: 0.8;
 }
 
 /* =========================================================
-DARK SIDEBAR
-========================================================= */
+   DARK SIDEBAR — iOS DARK GLASS
+   ========================================================= */
 
 body.dark .ant-sidebar > .ant-layout-sider {
-background:
-rgba(16, 23, 48, 0.62) !important;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28, 36, 68, 0.68),
+      rgba(10, 17, 38, 0.54)
+    ) !important;
 
-border-right:
-1px solid rgba(255, 255, 255, 0.085);
+  border-right:
+    1px solid rgba(255, 255, 255, 0.12);
 
-box-shadow:
-14px 0 50px rgba(0, 0, 0, 0.22),
-inset -1px 0 0 rgba(255, 255, 255, 0.045);
+  -webkit-backdrop-filter:
+    blur(34px) saturate(175%) contrast(108%);
+  backdrop-filter:
+    blur(34px) saturate(175%) contrast(108%);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.045) inset,
+    1px 0 0 rgba(255, 255, 255, 0.06) inset,
+    14px 0 55px rgba(0, 0, 0, 0.25),
+    0 15px 50px rgba(0, 0, 0, 0.18);
 }
 
-html[data-theme="ultra-dark"] body.dark
-.ant-sidebar > .ant-layout-sider {
-background:
-rgba(9, 14, 31, 0.76) !important;
+body.dark .ant-sidebar > .ant-layout-sider::before {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.10),
+      transparent 32%,
+      rgba(120, 150, 255, 0.035)
+    );
+}
 
-border-right-color:
-rgba(255, 255, 255, 0.055);
+/* Ultra dark */
+html[data-theme='ultra-dark'] body.dark
+  .ant-sidebar > .ant-layout-sider {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 20, 43, 0.80),
+      rgba(5, 10, 24, 0.72)
+    ) !important;
 
-box-shadow:
-16px 0 60px rgba(0, 0, 0, 0.38);
+  border-right-color:
+    rgba(255, 255, 255, 0.075);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.025) inset,
+    16px 0 65px rgba(0, 0, 0, 0.40);
 }
 
 /* =========================================================
-SIDEBAR SHADOW
-========================================================= */
+   SIDEBAR SHADOW
+   ========================================================= */
 
 .ant-sidebar:not(.sidebar-pinned)
-
-> .ant-layout-sider:not(.ant-layout-sider-collapsed) {
-> box-shadow:
-> 12px 0 45px rgba(67, 56, 130, 0.10),
-> inset -1px 0 0 rgba(255, 255, 255, 0.30);
-> }
+  > .ant-layout-sider:not(.ant-layout-sider-collapsed) {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    12px 0 45px rgba(67, 56, 130, 0.10);
+}
 
 /* =========================================================
-SIDEBAR ICONS
-========================================================= */
+   SIDEBAR ICONS
+   ========================================================= */
 
 .sider-nav .ant-menu-item .anticon,
 .sider-nav .ant-menu-submenu-title .anticon,
 .sider-utility .ant-menu-item .anticon {
-font-size:
-16px;
+  font-size: 16px;
 
-transition:
-transform 0.18s ease,
-filter 0.18s ease;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.25s ease;
 }
 
 /* =========================================================
-BRAND
-========================================================= */
+   BRAND
+   ========================================================= */
 
 .sider-brand,
 .drawer-brand {
-font-weight:
-650;
-
-font-size:
-18px;
-
-letter-spacing:
-0.5px;
-
-color:
-var(--ant-color-text);
+  font-weight: 650;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: var(--ant-color-text);
 }
 
 .sider-brand {
-display:
-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 
-align-items:
-center;
+  height: 58px;
+  padding: 0 16px 0 24px;
 
-justify-content:
-space-between;
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.18);
 
-gap:
-8px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.035)
+    );
 
-height:
-58px;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
 
-padding:
-0 16px 0 24px;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
 
-border-bottom:
-1px solid rgba(129, 140, 248, 0.10);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.16) inset;
+}
 
-background:
-linear-gradient(
-90deg,
-rgba(99, 102, 241, 0.055),
-transparent
-);
+body.dark .sider-brand {
+  border-bottom-color:
+    rgba(255, 255, 255, 0.075);
 
-user-select:
-none;
-
-white-space:
-nowrap;
-
-overflow:
-hidden;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.018)
+    );
 }
 
 .brand-block {
-display:
-inline-flex;
-
-align-items:
-center;
-
-min-width:
-0;
-
-line-height:
-1.1;
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  line-height: 1.1;
 }
 
 .brand-actions {
-display:
-inline-flex;
-
-align-items:
-center;
-
-gap:
-0;
-
-flex-shrink:
-0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
 }
 
 .brand-actions .sidebar-pin,
 .brand-actions .sidebar-docs,
 .brand-actions .sidebar-donate,
 .brand-actions .sidebar-theme-cycle {
-width:
-26px;
-
-height:
-26px;
+  width: 26px;
+  height: 26px;
 }
 
 /* =========================================================
-SIDEBAR ACTION BUTTONS
-========================================================= */
+   SIDEBAR ACTION BUTTONS — GLASS
+   ========================================================= */
 
 .sidebar-donate,
 .sidebar-docs,
 .sidebar-theme-cycle,
 .sidebar-pin {
-background:
-transparent;
+  background:
+    rgba(255, 255, 255, 0.10);
 
-border:
-1px solid transparent;
+  border:
+    1px solid rgba(255, 255, 255, 0.22);
 
-border-radius:
-9px;
+  border-radius: 10px;
 
-display:
-inline-flex;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-align-items:
-center;
+  color: var(--ant-color-text-secondary);
+  text-decoration: none;
 
-justify-content:
-center;
+  flex-shrink: 0;
+  cursor: pointer;
 
-color:
-var(--ant-color-text-secondary);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
 
-text-decoration:
-none;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.20) inset,
+    0 4px 14px rgba(30, 41, 90, 0.06);
 
-flex-shrink:
-0;
+  transition:
+    background 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
 
-cursor:
-pointer;
+.sidebar-donate:hover,
+.sidebar-donate:focus-visible,
+.sidebar-docs:hover,
+.sidebar-docs:focus-visible,
+.sidebar-theme-cycle:hover,
+.sidebar-theme-cycle:focus-visible,
+.sidebar-pin:hover,
+.sidebar-pin:focus-visible {
+  transform:
+    translateY(-1px) scale(1.045);
 
-transition:
-background 0.2s ease,
-transform 0.18s ease,
-color 0.2s ease,
-border-color 0.2s ease,
-box-shadow 0.2s ease;
+  background:
+    rgba(255, 255, 255, 0.24);
+
+  border-color:
+    rgba(255, 255, 255, 0.42);
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 7px 22px rgba(67, 56, 130, 0.12);
+
+  outline: none;
 }
 
 /* Donate */
-
 .sidebar-donate {
-width:
-30px;
-
-height:
-30px;
+  width: 30px;
+  height: 30px;
 }
 
 .sidebar-donate:hover,
 .sidebar-donate:focus-visible {
-background:
-rgba(236, 72, 153, 0.11);
+  color: #ec4899;
 
-border-color:
-rgba(236, 72, 153, 0.16);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(236, 72, 153, 0.16),
+      rgba(255, 255, 255, 0.16)
+    );
 
-color:
-#ec4899;
+  border-color:
+    rgba(236, 72, 153, 0.30);
+}
 
-transform:
-translateY(-1px) scale(1.04);
+/* Docs */
+.sidebar-docs {
+  width: 30px;
+  height: 30px;
+}
 
-box-shadow:
-0 5px 14px rgba(236, 72, 153, 0.10);
+.sidebar-docs:hover,
+.sidebar-docs:focus-visible {
+  color: var(--ant-color-primary);
 
-outline:
-none;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.15),
+      rgba(255, 255, 255, 0.14)
+    );
+
+  border-color:
+    rgba(99, 102, 241, 0.30);
+}
+
+/* Theme */
+.sidebar-theme-cycle {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+
+.sidebar-theme-cycle:hover,
+.sidebar-theme-cycle:focus-visible {
+  color: #14b8a6;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(45, 212, 191, 0.16),
+      rgba(255, 255, 255, 0.14)
+    );
+
+  border-color:
+    rgba(45, 212, 191, 0.30);
 }
 
 .sidebar-donate .anticon,
 .sidebar-docs .anticon,
 .sidebar-theme-cycle .anticon,
 .sidebar-pin .anticon {
-font-size:
-16px;
-}
-
-/* Docs */
-
-.sidebar-docs {
-width:
-30px;
-
-height:
-30px;
-}
-
-.sidebar-docs:hover,
-.sidebar-docs:focus-visible {
-background:
-rgba(99, 102, 241, 0.10);
-
-border-color:
-rgba(99, 102, 241, 0.15);
-
-color:
-var(--ant-color-primary);
-
-transform:
-translateY(-1px) scale(1.04);
-
-box-shadow:
-0 5px 14px rgba(99, 102, 241, 0.10);
-
-outline:
-none;
-}
-
-/* Theme */
-
-.sidebar-theme-cycle {
-width:
-30px;
-
-height:
-30px;
-
-padding:
-0;
-}
-
-.sidebar-theme-cycle:hover,
-.sidebar-theme-cycle:focus-visible {
-background:
-rgba(45, 212, 191, 0.10);
-
-border-color:
-rgba(45, 212, 191, 0.15);
-
-color:
-#14b8a6;
-
-transform:
-translateY(-1px) scale(1.04);
-
-box-shadow:
-0 5px 14px rgba(20, 184, 166, 0.10);
-
-outline:
-none;
+  font-size: 16px;
 }
 
 /* =========================================================
-DRAWER
-========================================================= */
-
-.drawer-header-actions {
-display:
-inline-flex;
-
-align-items:
-center;
-
-gap:
-4px;
-}
+   DRAWER HANDLE — LIQUID GLASS
+   ========================================================= */
 
 .drawer-handle {
-position:
-fixed;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1100;
 
-top:
-12px;
+  width: 40px;
+  height: 40px;
 
-left:
-12px;
+  display: none;
+  align-items: center;
+  justify-content: center;
 
-z-index:
-1100;
+  background:
+    rgba(255, 255, 255, 0.32);
 
-width:
-40px;
+  color: var(--ant-color-text);
 
-height:
-40px;
+  border:
+    1px solid rgba(255, 255, 255, 0.48);
 
-display:
-none;
+  border-radius: 14px;
 
-align-items:
-center;
+  cursor: pointer;
+  font-size: 18px;
 
-justify-content:
-center;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 8px 30px rgba(67, 56, 130, 0.14);
 
-background:
-rgba(255, 255, 255, 0.28);
-
-color:
-var(--ant-color-text);
-
-border:
-1px solid rgba(255, 255, 255, 0.35);
-
-border-radius:
-12px;
-
-cursor:
-pointer;
-
-font-size:
-18px;
-
-box-shadow:
-0 8px 25px rgba(67, 56, 130, 0.12);
-
--webkit-backdrop-filter:
-blur(18px);
-
-backdrop-filter:
-blur(18px);
+  -webkit-backdrop-filter:
+    blur(24px) saturate(170%);
+  backdrop-filter:
+    blur(24px) saturate(170%);
 }
 
 body.dark .drawer-handle {
-background:
-rgba(24, 30, 62, 0.68);
+  background:
+    rgba(25, 33, 62, 0.68);
 
-border-color:
-rgba(255, 255, 255, 0.10);
+  border-color:
+    rgba(255, 255, 255, 0.13);
 
-color:
-rgba(255, 255, 255, 0.90);
+  color:
+    rgba(255, 255, 255, 0.90);
 }
 
 /* =========================================================
-DRAWER HEADER
-========================================================= */
+   DRAWER HEADER
+   ========================================================= */
 
 .drawer-header {
-display:
-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-align-items:
-center;
+  padding: 14px 16px;
 
-justify-content:
-space-between;
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.16);
 
-padding:
-14px 16px;
+  background:
+    rgba(255, 255, 255, 0.10);
 
-border-bottom:
-1px solid rgba(129, 140, 248, 0.10);
+  -webkit-backdrop-filter:
+    blur(20px) saturate(160%);
+  backdrop-filter:
+    blur(20px) saturate(160%);
 
-background:
-rgba(255, 255, 255, 0.035);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset;
+}
+
+.drawer-header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .drawer-close {
-background:
-transparent;
+  background:
+    rgba(255, 255, 255, 0.09);
 
-border:
-1px solid transparent;
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
 
-width:
-32px;
+  width: 32px;
+  height: 32px;
 
-height:
-32px;
+  border-radius: 10px;
 
-border-radius:
-9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-display:
-inline-flex;
+  cursor: pointer;
+  font-size: 16px;
 
-align-items:
-center;
+  color: var(--ant-color-text-secondary);
 
-justify-content:
-center;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 
-cursor:
-pointer;
-
-font-size:
-16px;
-
-color:
-var(--ant-color-text-secondary);
-
-transition:
-background 0.2s ease,
-color 0.2s ease,
-transform 0.18s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .drawer-close:hover,
 .drawer-close:focus-visible {
-background:
-rgba(99, 102, 241, 0.10);
+  background:
+    rgba(99, 102, 241, 0.16);
 
-color:
-var(--ant-color-primary);
+  color: var(--ant-color-primary);
 
-transform:
-scale(1.04);
+  transform: scale(1.04);
 
-outline:
-none;
+  outline: none;
 }
 
 /* =========================================================
-DRAWER MENU
-========================================================= */
+   DRAWER MENU
+   ========================================================= */
 
 .drawer-menu .ant-menu-item {
-height:
-48px;
+  height: 48px;
+  line-height: 48px;
 
-line-height:
-48px;
+  margin: 3px 8px;
 
-margin:
-3px 8px;
-
-border-radius:
-10px;
+  border-radius: 12px;
 }
 
 .drawer-menu .ant-menu-item .anticon {
-font-size:
-16px;
+  font-size: 16px;
 }
 
 .drawer-utility {
-margin-top:
-auto;
+  margin-top: auto;
 
-border-top:
-1px solid rgba(129, 140, 248, 0.10);
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* =========================================================
-SIDEBAR CHILDREN
-========================================================= */
+   SIDEBAR CHILDREN
+   ========================================================= */
 
 .ant-sidebar > .ant-layout-sider .ant-layout-sider-children {
-display:
-flex;
-
-flex-direction:
-column;
-
-height:
-100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .sider-nav {
-flex:
-1 1 auto;
+  flex: 1 1 auto;
 
-overflow-y:
-auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 
-overflow-x:
-hidden;
+  min-height: 0;
 
-min-height:
-0;
-
-scrollbar-width:
-thin;
+  scrollbar-width: thin;
 }
 
 .sider-utility {
-flex:
-0 0 auto;
+  flex: 0 0 auto;
 
-border-top:
-1px solid rgba(129, 140, 248, 0.10);
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
 }
 
 .sider-footer,
 .drawer-footer {
-flex:
-0 0 auto;
-
-padding:
-8px 8px 12px;
+  flex: 0 0 auto;
+  padding: 8px 8px 12px;
 }
 
 /* =========================================================
-PIN BUTTON
-========================================================= */
+   PIN BUTTON
+   ========================================================= */
 
 .sidebar-pin {
-width:
-30px;
-
-height:
-30px;
-}
-
-.sidebar-pin:hover,
-.sidebar-pin:focus-visible {
-background:
-rgba(99, 102, 241, 0.10);
-
-border-color:
-rgba(99, 102, 241, 0.15);
-
-color:
-var(--ant-color-primary);
-
-transform:
-scale(1.04);
-
-box-shadow:
-0 5px 14px rgba(99, 102, 241, 0.09);
-
-outline:
-none;
+  width: 30px;
+  height: 30px;
 }
 
 /* =========================================================
-VERSION
-========================================================= */
+   VERSION
+   ========================================================= */
 
 .sider-version {
-display:
-flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-align-items:
-center;
+  gap: 10px;
 
-justify-content:
-flex-start;
+  width: 100%;
 
-gap:
-10px;
+  padding: 8px 16px;
 
-width:
-100%;
+  color: var(--ant-color-text-secondary);
 
-padding:
-8px 16px;
+  font-size: 13px;
+  font-weight: 500;
 
-color:
-var(--ant-color-text-secondary);
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
 
-font-size:
-13px;
+  text-decoration: none;
 
-font-weight:
-500;
+  border-radius: 10px;
 
-font-family:
-ui-monospace,
-SFMono-Regular,
-Menlo,
-Monaco,
-Consolas,
-monospace;
-
-text-decoration:
-none;
-
-border-radius:
-9px;
-
-transition:
-color 0.2s ease,
-background 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
 .ant-layout-sider-collapsed .sider-version {
-justify-content:
-center;
-
-padding:
-8px 0;
+  justify-content: center;
+  padding: 8px 0;
 }
 
 .sider-version .anticon {
-font-size:
-16px;
+  font-size: 16px;
 }
 
 .sider-version:hover,
 .sider-version:focus-visible {
-color:
-var(--ant-color-primary);
+  color: var(--ant-color-primary);
 
-background:
-rgba(99, 102, 241, 0.07);
+  background:
+    rgba(255, 255, 255, 0.12);
 
-outline:
-none;
+  outline: none;
 }
 
 /* =========================================================
-MOBILE
-========================================================= */
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 768px) {
-.drawer-handle {
-display:
-inline-flex;
-}
+  .drawer-handle {
+    display: inline-flex;
+  }
 
-.ant-sidebar > .ant-layout-sider .ant-layout-sider-children {
-display:
-none;
-}
+  .ant-sidebar > .ant-layout-sider .ant-layout-sider-children {
+    display: none;
+  }
 
-.ant-sidebar > .ant-layout-sider {
-flex:
-0 0 0 !important;
+  .ant-sidebar > .ant-layout-sider {
+    flex: 0 0 0 !important;
+    max-width: 0 !important;
+    min-width: 0 !important;
+    width: 0 !important;
+  }
 
-```
-max-width:
-  0 !important;
-
-min-width:
-  0 !important;
-
-width:
-  0 !important;
-```
-
-}
-
-.ant-sidebar {
-flex:
-0 0 0;
-
-```
-width:
-  0;
-```
-
-}
+  .ant-sidebar {
+    flex: 0 0 0;
+    width: 0;
+  }
 }
 
 /* =========================================================
-DRAWER DARK MODE
-========================================================= */
+   DRAWER DARK MODE
+   ========================================================= */
 
 body.dark .ant-drawer-content,
 body.dark .ant-drawer-body {
-background:
-rgba(15, 22, 45, 0.86) !important;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 28, 54, 0.72),
+      rgba(8, 14, 32, 0.66)
+    ) !important;
 
--webkit-backdrop-filter:
-blur(26px) saturate(150%);
+  -webkit-backdrop-filter:
+    blur(32px) saturate(170%);
+  backdrop-filter:
+    blur(32px) saturate(170%);
 
-backdrop-filter:
-blur(26px) saturate(150%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
 }
 
-html[data-theme="ultra-dark"] body.dark .ant-drawer-content,
-html[data-theme="ultra-dark"] body.dark .ant-drawer-body {
-background:
-rgba(7, 12, 27, 0.92) !important;
+html[data-theme='ultra-dark'] body.dark
+  .ant-drawer-content,
+html[data-theme='ultra-dark'] body.dark
+  .ant-drawer-body {
+  background:
+    rgba(6, 11, 25, 0.84) !important;
 }
 
 body.dark .ant-drawer-body .drawer-menu,
@@ -776,38 +664,37 @@ body.dark .ant-drawer-body .drawer-menu.ant-menu-dark,
 body.dark .ant-drawer-body .drawer-menu .ant-menu-item,
 body.dark .ant-drawer-body .drawer-menu .ant-menu-sub,
 body.dark .ant-drawer-body .drawer-menu .ant-menu-item-group-list {
-background:
-transparent !important;
+  background: transparent !important;
 }
 
 /* =========================================================
-MENU SELECTED
-========================================================= */
+   MENU SELECTED — GLASS PILL
+   ========================================================= */
 
 .sider-nav .ant-menu-item-selected,
 .sider-utility .ant-menu-item-selected,
 .drawer-menu .ant-menu-item-selected {
-background:
-linear-gradient(
-135deg,
-rgba(99, 102, 241, 0.18),
-rgba(45, 212, 191, 0.07)
-) !important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.20),
+      rgba(45, 212, 191, 0.10)
+    ) !important;
 
-color:
-var(--ant-color-primary) !important;
+  color:
+    var(--ant-color-primary) !important;
 
-border:
-1px solid rgba(129, 140, 248, 0.13);
+  border:
+    1px solid rgba(129, 140, 248, 0.20);
 
-box-shadow:
-inset 0 1px 0 rgba(255, 255, 255, 0.08),
-0 4px 14px rgba(99, 102, 241, 0.06);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.20) inset,
+    0 5px 18px rgba(99, 102, 241, 0.08);
 }
 
 /* =========================================================
-MENU HOVER
-========================================================= */
+   MENU HOVER — LIQUID GLASS
+   ========================================================= */
 
 .sider-nav .ant-menu-item-active:not(.ant-menu-item-selected),
 .sider-utility .ant-menu-item-active:not(.ant-menu-item-selected),
@@ -815,48 +702,64 @@ MENU HOVER
 .sider-nav .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-item-disabled):hover,
 .sider-utility .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-item-disabled):hover,
 .drawer-menu .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-item-disabled):hover {
-background:
-rgba(99, 102, 241, 0.085) !important;
+  background:
+    rgba(255, 255, 255, 0.13) !important;
 
-color:
-var(--ant-color-primary) !important;
+  color:
+    var(--ant-color-primary) !important;
 
-border-radius:
-10px;
+  border-radius: 12px;
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    0 4px 14px rgba(67, 56, 130, 0.05);
 }
 
 /* =========================================================
-MENU ICON HOVER
-========================================================= */
+   MENU ICON HOVER
+   ========================================================= */
 
 .sider-nav .ant-menu-item:hover .anticon,
 .sider-utility .ant-menu-item:hover .anticon,
 .drawer-menu .ant-menu-item:hover .anticon {
-transform:
-scale(1.06);
+  transform: scale(1.07);
 
-filter:
-drop-shadow(
-0 0 5px
-rgba(99, 102, 241, 0.20)
-);
+  filter:
+    drop-shadow(
+      0 0 6px rgba(99, 102, 241, 0.28)
+    );
 }
 
 /* =========================================================
-REDUCED MOTION
-========================================================= */
+   DARK MENU GLASS
+   ========================================================= */
+
+body.dark .sider-nav .ant-menu-item:not(.ant-menu-item-selected):hover,
+body.dark .sider-utility .ant-menu-item:not(.ant-menu-item-selected):hover,
+body.dark .drawer-menu .ant-menu-item:not(.ant-menu-item-selected):hover {
+  background:
+    rgba(255, 255, 255, 0.075) !important;
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 5px 18px rgba(0, 0, 0, 0.10);
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-.sidebar-donate,
-.sidebar-docs,
-.sidebar-theme-cycle,
-.sidebar-pin,
-.drawer-close,
-.sider-nav .ant-menu-item .anticon,
-.sider-utility .ant-menu-item .anticon,
-.drawer-menu .ant-menu-item .anticon {
-transition:
-none;
+  .sidebar-donate,
+  .sidebar-docs,
+  .sidebar-theme-cycle,
+  .sidebar-pin,
+  .drawer-close,
+  .sider-nav .ant-menu-item .anticon,
+  .sider-utility .ant-menu-item .anticon,
+  .drawer-menu .ant-menu-item .anticon {
+    transition: none;
+  }
 }
-}
+```
 
