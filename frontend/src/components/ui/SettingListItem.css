@@ -1,12 +1,39 @@
+```css
 .setting-list-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--ant-color-border-secondary);
+
+  padding: 14px 16px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.setting-list-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .setting-list-item:last-child {
-  border-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .setting-list-meta {
@@ -26,3 +53,6 @@
   color: var(--ant-color-text-tertiary);
   line-height: 1.5715;
 }
+```
+
+برای اینکه واقعاً حس شیشه‌ای مشخص باشد، **پس‌زمینه‌ی والد** هم بهتر است کمی رنگ/گرادیان داشته باشد؛ روی پس‌زمینه‌ی کاملاً سفید، `backdrop-filter` چندان دیده نمی‌شود.
