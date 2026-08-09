@@ -18,7 +18,7 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "Run Run idont-panel (Postgres)",
+      "name": "Run idont-panel (Postgres)",
       "type": "go",
       "request": "launch",
       "mode": "auto",
