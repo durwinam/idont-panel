@@ -32,32 +32,35 @@
   font-size: 12px;
 }
 
+/* Inbounds table */
 .inbounds-page .ant-table {
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
+  background: transparent;
 }
 
 .inbounds-page .ant-table-container {
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
 .inbounds-page .ant-table-thead > tr:first-child > *:first-child {
-  border-start-start-radius: 8px;
+  border-start-start-radius: 12px;
 }
 
 .inbounds-page .ant-table-thead > tr:first-child > *:last-child {
-  border-start-end-radius: 8px;
+  border-start-end-radius: 12px;
 }
 
 .inbounds-page .ant-table-tbody > tr:last-child > *:first-child {
-  border-end-start-radius: 8px;
+  border-end-start-radius: 12px;
 }
 
 .inbounds-page .ant-table-tbody > tr:last-child > *:last-child {
-  border-end-end-radius: 8px;
+  border-end-end-radius: 12px;
 }
 
+/* Inbound mobile cards */
 .inbound-cards {
   display: flex;
   flex-direction: column;
@@ -67,17 +70,58 @@
 
 .inbound-card {
   border: 1px solid var(--ant-color-border-secondary);
-  border-radius: 10px;
-  padding: 12px;
-  background: var(--ant-color-fill-quaternary);
+  border-radius: 12px;
+  padding: 14px;
+  background: var(--bg-card, var(--ant-color-bg-container));
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.inbound-card:hover {
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.inbounds-page.is-dark .inbound-card {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.inbounds-page.is-dark .inbound-card:hover {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.inbounds-page.is-dark.is-ultra .inbound-card {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.inbounds-page.is-dark.is-ultra .inbound-card:hover {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .inbound-card.is-selected {
   border-color: var(--ant-color-primary);
-  background: color-mix(in srgb, var(--ant-color-primary) 6%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--ant-color-primary) 6%,
+    var(--bg-card, transparent)
+  );
 }
 
 .card-bulk-bar {
@@ -89,7 +133,11 @@
 
 .bulk-count {
   font-size: 12px;
-  background: color-mix(in srgb, var(--ant-color-primary) 12%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--ant-color-primary) 12%,
+    transparent
+  );
   color: var(--ant-color-primary);
   padding: 1px 8px;
   border-radius: 10px;
@@ -128,6 +176,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  padding-top: 2px;
 }
 
 .stat-row {
@@ -178,5 +227,10 @@
   .inbounds-page .row-action-trigger {
     font-size: 22px;
     padding: 4px;
+  }
+
+  .inbound-card {
+    padding: 12px;
+    border-radius: 12px;
   }
 }
