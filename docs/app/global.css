@@ -1,32 +1,475 @@
+```css
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
-/* 3x-ui brand: cyan / turquoise accent (matches the panel logo). */
+/* =========================================================
+   idont-panel Glassmorphism Theme
+   ========================================================= */
+
 :root {
   --color-fd-primary: hsl(190, 95%, 39%);
   --color-fd-primary-foreground: hsl(0, 0%, 100%);
   --color-fd-ring: hsl(190, 95%, 39%);
+
+  /* Glass system */
+  --glass-bg: rgba(255, 255, 255, 0.055);
+  --glass-bg-strong: rgba(255, 255, 255, 0.085);
+  --glass-bg-soft: rgba(255, 255, 255, 0.035);
+
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-strong: rgba(255, 255, 255, 0.18);
+
+  --glass-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.28);
+
+  --glass-blur: blur(18px);
+  --glass-blur-heavy: blur(28px);
+
+  --glass-radius: 18px;
+  --glass-radius-small: 12px;
+
+  --brand: hsl(190, 95%, 45%);
+  --brand-light: hsl(187, 90%, 60%);
 }
 
 .dark {
   --color-fd-primary: hsl(187, 90%, 55%);
   --color-fd-primary-foreground: hsl(190, 80%, 8%);
   --color-fd-ring: hsl(187, 90%, 55%);
+
+  --glass-bg: rgba(255, 255, 255, 0.055);
+  --glass-bg-strong: rgba(255, 255, 255, 0.09);
+  --glass-bg-soft: rgba(255, 255, 255, 0.035);
+
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-strong: rgba(255, 255, 255, 0.2);
+
+  --brand: hsl(187, 90%, 55%);
+  --brand-light: hsl(185, 95%, 68%);
 }
 
-/* Expose the brand color as Tailwind utilities (bg-brand, text-brand, ...). */
+/* =========================================================
+   Tailwind theme
+   ========================================================= */
+
 @theme {
-  --color-brand: hsl(190, 95%, 39%);
+  --color-brand: hsl(190, 95%, 45%);
   --color-brand-foreground: hsl(0, 0%, 100%);
 }
 
+/* =========================================================
+   Base
+   ========================================================= */
+
 html {
   scrollbar-gutter: stable;
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(0, 210, 230, 0.09),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(0, 150, 255, 0.07),
+      transparent 30%
+    ),
+    #071116;
 }
 
-/* In RTL the scroll-lock padding must be applied to the logical inline-end. */
+body {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(0, 220, 235, 0.09),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(0, 120, 255, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(0, 190, 210, 0.05),
+      transparent 35%
+    ),
+    #071116;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  background-attachment: fixed;
+}
+
+/* =========================================================
+   Global Glass Surface
+   ========================================================= */
+
+.glass,
+.glass-panel,
+.card,
+[class*='card'],
+[class*='Card'] {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+/* =========================================================
+   Main application surfaces
+   ========================================================= */
+
+main,
+aside,
+header,
+nav,
+footer {
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+/* =========================================================
+   Sidebar
+   ========================================================= */
+
+aside {
+  background: rgba(7, 17, 22, 0.58) !important;
+  border-color: var(--glass-border) !important;
+
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+}
+
+/* =========================================================
+   Header / Topbar
+   ========================================================= */
+
+header {
+  background: rgba(7, 17, 22, 0.52) !important;
+  border-color: var(--glass-border) !important;
+
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+
+  box-shadow:
+    0 4px 25px rgba(0, 0, 0, 0.18),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* =========================================================
+   Cards
+   ========================================================= */
+
+.card,
+[class*='card'],
+[class*='Card'] {
+  border-radius: var(--glass-radius);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.card:hover,
+[class*='card']:hover,
+[class*='Card']:hover {
+  background: var(--glass-bg-strong);
+
+  border-color: var(--glass-border-strong);
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+
+button {
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 120ms ease;
+}
+
+button:not(:disabled):hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+/* Brand buttons */
+
+button.bg-brand,
+.bg-brand {
+  background: linear-gradient(
+    135deg,
+    hsl(190, 95%, 42%),
+    hsl(184, 90%, 48%)
+  ) !important;
+
+  box-shadow:
+    0 6px 22px rgba(0, 200, 220, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+button.bg-brand:hover,
+.bg-brand:hover {
+  box-shadow:
+    0 8px 28px rgba(0, 210, 230, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+/* =========================================================
+   Inputs / Selects / Textareas
+   ========================================================= */
+
+input,
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.045) !important;
+
+  border-color: rgba(255, 255, 255, 0.12) !important;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  background: rgba(255, 255, 255, 0.065) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background: rgba(255, 255, 255, 0.075) !important;
+
+  border-color: var(--brand) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 200, 220, 0.1),
+    0 0 25px rgba(0, 200, 220, 0.08);
+}
+
+/* =========================================================
+   Tables
+   ========================================================= */
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+thead {
+  background: rgba(255, 255, 255, 0.045) !important;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+tbody tr {
+  transition:
+    background 140ms ease,
+    transform 140ms ease;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.045) !important;
+}
+
+/* =========================================================
+   Dialog / Modal / Dropdown
+   ========================================================= */
+
+[role='dialog'],
+[role='menu'],
+[role='listbox'],
+[data-radix-popper-content-wrapper] > *,
+[data-state='open'][data-side] {
+  background: rgba(10, 25, 31, 0.72) !important;
+
+  border: 1px solid var(--glass-border-strong) !important;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+
+  border-radius: var(--glass-radius);
+}
+
+/* =========================================================
+   Dropdown items
+   ========================================================= */
+
+[role='menuitem'],
+[role='option'] {
+  transition:
+    background 120ms ease,
+    color 120ms ease;
+}
+
+[role='menuitem']:hover,
+[role='option']:hover {
+  background: rgba(255, 255, 255, 0.075) !important;
+}
+
+/* =========================================================
+   Navigation links
+   ========================================================= */
+
+nav a,
+aside a {
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+nav a:hover,
+aside a:hover {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+nav a[aria-current='page'],
+aside a[aria-current='page'] {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 210, 230, 0.14),
+      rgba(0, 150, 255, 0.07)
+    ) !important;
+
+  border: 1px solid rgba(0, 220, 235, 0.16);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 4px 18px rgba(0, 200, 220, 0.08);
+}
+
+/* =========================================================
+   Badges
+   ========================================================= */
+
+.badge,
+[class*='badge'],
+[class*='Badge'] {
+  background: rgba(255, 255, 255, 0.065);
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   Scrollbar
+   ========================================================= */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(255, 255, 255, 0.18)
+    transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+  background-clip: padding-box;
+}
+
+/* =========================================================
+   Selection
+   ========================================================= */
+
+::selection {
+  background: rgba(0, 210, 230, 0.28);
+  color: white;
+}
+
+/* =========================================================
+   RTL scroll lock
+   ========================================================= */
+
 html > body[data-scroll-locked] {
   margin-inline-end: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;
 }
+
+/* =========================================================
+   Accessibility
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 768px) {
+  :root {
+    --glass-radius: 14px;
+  }
+
+  aside {
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+  }
+
+  .card,
+  [class*='card'],
+  [class*='Card'] {
+    box-shadow:
+      0 6px 24px rgba(0, 0, 0, 0.24);
+  }
+}
+```
