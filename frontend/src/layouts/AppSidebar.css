@@ -1,336 +1,774 @@
+/* =========================================================
+SIDEBAR — AURORA GLASS
+========================================================= */
+
 .ant-sidebar {
-  flex: 0 0 var(--sider-rail, 72px);
-  width: var(--sider-rail, 72px);
-  position: relative;
-  z-index: 210;
+flex:
+0 0 var(--sider-rail, 72px);
+
+width:
+var(--sider-rail, 72px);
+
+position:
+relative;
+
+z-index:
+210;
 }
+
+/* =========================================================
+SIDEBAR CONTAINER
+========================================================= */
 
 .ant-sidebar > .ant-layout-sider {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  align-self: flex-start;
+position:
+sticky;
+
+top:
+0;
+
+height:
+100vh;
+
+align-self:
+flex-start;
+
+background:
+rgba(255, 255, 255, 0.28) !important;
+
+border-right:
+1px solid rgba(255, 255, 255, 0.42);
+
+-webkit-backdrop-filter:
+blur(26px) saturate(160%);
+
+backdrop-filter:
+blur(26px) saturate(160%);
+
+box-shadow:
+12px 0 45px rgba(67, 56, 130, 0.08),
+inset -1px 0 0 rgba(255, 255, 255, 0.35);
+
+overflow:
+hidden;
 }
 
-.ant-sidebar:not(.sidebar-pinned) > .ant-layout-sider:not(.ant-layout-sider-collapsed) {
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.22);
+/* =========================================================
+DARK SIDEBAR
+========================================================= */
+
+body.dark .ant-sidebar > .ant-layout-sider {
+background:
+rgba(16, 23, 48, 0.62) !important;
+
+border-right:
+1px solid rgba(255, 255, 255, 0.085);
+
+box-shadow:
+14px 0 50px rgba(0, 0, 0, 0.22),
+inset -1px 0 0 rgba(255, 255, 255, 0.045);
 }
+
+html[data-theme="ultra-dark"] body.dark
+.ant-sidebar > .ant-layout-sider {
+background:
+rgba(9, 14, 31, 0.76) !important;
+
+border-right-color:
+rgba(255, 255, 255, 0.055);
+
+box-shadow:
+16px 0 60px rgba(0, 0, 0, 0.38);
+}
+
+/* =========================================================
+SIDEBAR SHADOW
+========================================================= */
+
+.ant-sidebar:not(.sidebar-pinned)
+
+> .ant-layout-sider:not(.ant-layout-sider-collapsed) {
+> box-shadow:
+> 12px 0 45px rgba(67, 56, 130, 0.10),
+> inset -1px 0 0 rgba(255, 255, 255, 0.30);
+> }
+
+/* =========================================================
+SIDEBAR ICONS
+========================================================= */
 
 .sider-nav .ant-menu-item .anticon,
 .sider-nav .ant-menu-submenu-title .anticon,
 .sider-utility .ant-menu-item .anticon {
-  font-size: 16px;
+font-size:
+16px;
+
+transition:
+transform 0.18s ease,
+filter 0.18s ease;
 }
+
+/* =========================================================
+BRAND
+========================================================= */
 
 .sider-brand,
 .drawer-brand {
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-  color: var(--ant-color-text);
+font-weight:
+650;
+
+font-size:
+18px;
+
+letter-spacing:
+0.5px;
+
+color:
+var(--ant-color-text);
 }
 
 .sider-brand {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  height: 58px;
-  padding: 0 16px 0 24px;
-  border-bottom: 1px solid var(--ant-color-border-secondary);
-  user-select: none;
-  white-space: nowrap;
-  overflow: hidden;
+display:
+flex;
+
+align-items:
+center;
+
+justify-content:
+space-between;
+
+gap:
+8px;
+
+height:
+58px;
+
+padding:
+0 16px 0 24px;
+
+border-bottom:
+1px solid rgba(129, 140, 248, 0.10);
+
+background:
+linear-gradient(
+90deg,
+rgba(99, 102, 241, 0.055),
+transparent
+);
+
+user-select:
+none;
+
+white-space:
+nowrap;
+
+overflow:
+hidden;
 }
 
 .brand-block {
-  display: inline-flex;
-  align-items: center;
-  min-width: 0;
-  line-height: 1.1;
+display:
+inline-flex;
+
+align-items:
+center;
+
+min-width:
+0;
+
+line-height:
+1.1;
 }
 
 .brand-actions {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  flex-shrink: 0;
+display:
+inline-flex;
+
+align-items:
+center;
+
+gap:
+0;
+
+flex-shrink:
+0;
 }
 
 .brand-actions .sidebar-pin,
 .brand-actions .sidebar-docs,
 .brand-actions .sidebar-donate,
 .brand-actions .sidebar-theme-cycle {
-  width: 26px;
-  height: 26px;
+width:
+26px;
+
+height:
+26px;
 }
 
+/* =========================================================
+SIDEBAR ACTION BUTTONS
+========================================================= */
+
+.sidebar-donate,
+.sidebar-docs,
+.sidebar-theme-cycle,
+.sidebar-pin {
+background:
+transparent;
+
+border:
+1px solid transparent;
+
+border-radius:
+9px;
+
+display:
+inline-flex;
+
+align-items:
+center;
+
+justify-content:
+center;
+
+color:
+var(--ant-color-text-secondary);
+
+text-decoration:
+none;
+
+flex-shrink:
+0;
+
+cursor:
+pointer;
+
+transition:
+background 0.2s ease,
+transform 0.18s ease,
+color 0.2s ease,
+border-color 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+/* Donate */
+
 .sidebar-donate {
-  background: transparent;
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ant-color-text-secondary);
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: background-color 0.2s, transform 0.15s, color 0.2s;
+width:
+30px;
+
+height:
+30px;
 }
 
 .sidebar-donate:hover,
 .sidebar-donate:focus-visible {
-  background-color: rgba(236, 72, 153, 0.12);
-  color: #ec4899;
-  transform: scale(1.08);
-  outline: none;
+background:
+rgba(236, 72, 153, 0.11);
+
+border-color:
+rgba(236, 72, 153, 0.16);
+
+color:
+#ec4899;
+
+transform:
+translateY(-1px) scale(1.04);
+
+box-shadow:
+0 5px 14px rgba(236, 72, 153, 0.10);
+
+outline:
+none;
 }
 
-.sidebar-donate .anticon {
-  font-size: 16px;
+.sidebar-donate .anticon,
+.sidebar-docs .anticon,
+.sidebar-theme-cycle .anticon,
+.sidebar-pin .anticon {
+font-size:
+16px;
 }
+
+/* Docs */
 
 .sidebar-docs {
-  background: transparent;
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ant-color-text-secondary);
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: background-color 0.2s, transform 0.15s, color 0.2s;
+width:
+30px;
+
+height:
+30px;
 }
 
 .sidebar-docs:hover,
 .sidebar-docs:focus-visible {
-  background-color: color-mix(in srgb, var(--ant-color-primary) 12%, transparent);
-  color: var(--ant-color-primary);
-  transform: scale(1.08);
-  outline: none;
+background:
+rgba(99, 102, 241, 0.10);
+
+border-color:
+rgba(99, 102, 241, 0.15);
+
+color:
+var(--ant-color-primary);
+
+transform:
+translateY(-1px) scale(1.04);
+
+box-shadow:
+0 5px 14px rgba(99, 102, 241, 0.10);
+
+outline:
+none;
 }
 
-.sidebar-docs .anticon {
-  font-size: 16px;
-}
+/* Theme */
 
 .sidebar-theme-cycle {
-  background: transparent;
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--ant-color-text-secondary);
-  padding: 0;
-  flex-shrink: 0;
-  transition: background-color 0.2s, transform 0.15s, color 0.2s;
+width:
+30px;
+
+height:
+30px;
+
+padding:
+0;
 }
 
 .sidebar-theme-cycle:hover,
 .sidebar-theme-cycle:focus-visible {
-  background-color: color-mix(in srgb, var(--ant-color-primary) 12%, transparent);
-  color: var(--ant-color-primary);
-  transform: scale(1.08);
-  outline: none;
+background:
+rgba(45, 212, 191, 0.10);
+
+border-color:
+rgba(45, 212, 191, 0.15);
+
+color:
+#14b8a6;
+
+transform:
+translateY(-1px) scale(1.04);
+
+box-shadow:
+0 5px 14px rgba(20, 184, 166, 0.10);
+
+outline:
+none;
 }
 
-.sidebar-theme-cycle .anticon {
-  font-size: 16px;
-}
+/* =========================================================
+DRAWER
+========================================================= */
 
 .drawer-header-actions {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+display:
+inline-flex;
+
+align-items:
+center;
+
+gap:
+4px;
 }
 
 .drawer-handle {
-  position: fixed;
-  top: 12px;
-  left: 12px;
-  z-index: 1100;
-  background: rgba(0, 0, 0, 0.55);
-  color: #fff;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+position:
+fixed;
+
+top:
+12px;
+
+left:
+12px;
+
+z-index:
+1100;
+
+width:
+40px;
+
+height:
+40px;
+
+display:
+none;
+
+align-items:
+center;
+
+justify-content:
+center;
+
+background:
+rgba(255, 255, 255, 0.28);
+
+color:
+var(--ant-color-text);
+
+border:
+1px solid rgba(255, 255, 255, 0.35);
+
+border-radius:
+12px;
+
+cursor:
+pointer;
+
+font-size:
+18px;
+
+box-shadow:
+0 8px 25px rgba(67, 56, 130, 0.12);
+
+-webkit-backdrop-filter:
+blur(18px);
+
+backdrop-filter:
+blur(18px);
 }
 
+body.dark .drawer-handle {
+background:
+rgba(24, 30, 62, 0.68);
+
+border-color:
+rgba(255, 255, 255, 0.10);
+
+color:
+rgba(255, 255, 255, 0.90);
+}
+
+/* =========================================================
+DRAWER HEADER
+========================================================= */
+
 .drawer-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--ant-color-border-secondary);
+display:
+flex;
+
+align-items:
+center;
+
+justify-content:
+space-between;
+
+padding:
+14px 16px;
+
+border-bottom:
+1px solid rgba(129, 140, 248, 0.10);
+
+background:
+rgba(255, 255, 255, 0.035);
 }
 
 .drawer-close {
-  background: transparent;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--ant-color-text-secondary);
+background:
+transparent;
+
+border:
+1px solid transparent;
+
+width:
+32px;
+
+height:
+32px;
+
+border-radius:
+9px;
+
+display:
+inline-flex;
+
+align-items:
+center;
+
+justify-content:
+center;
+
+cursor:
+pointer;
+
+font-size:
+16px;
+
+color:
+var(--ant-color-text-secondary);
+
+transition:
+background 0.2s ease,
+color 0.2s ease,
+transform 0.18s ease;
 }
 
 .drawer-close:hover,
 .drawer-close:focus-visible {
-  background: var(--ant-color-fill-tertiary);
+background:
+rgba(99, 102, 241, 0.10);
+
+color:
+var(--ant-color-primary);
+
+transform:
+scale(1.04);
+
+outline:
+none;
 }
 
+/* =========================================================
+DRAWER MENU
+========================================================= */
+
 .drawer-menu .ant-menu-item {
-  height: 48px;
-  line-height: 48px;
-  margin: 0;
-  border-radius: 0;
+height:
+48px;
+
+line-height:
+48px;
+
+margin:
+3px 8px;
+
+border-radius:
+10px;
 }
 
 .drawer-menu .ant-menu-item .anticon {
-  font-size: 16px;
+font-size:
+16px;
 }
 
 .drawer-utility {
-  margin-top: auto;
-  border-top: 1px solid var(--ant-color-border-secondary);
+margin-top:
+auto;
+
+border-top:
+1px solid rgba(129, 140, 248, 0.10);
 }
 
+/* =========================================================
+SIDEBAR CHILDREN
+========================================================= */
+
 .ant-sidebar > .ant-layout-sider .ant-layout-sider-children {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+display:
+flex;
+
+flex-direction:
+column;
+
+height:
+100%;
 }
 
 .sider-nav {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  overflow-x: hidden;
-  min-height: 0;
+flex:
+1 1 auto;
+
+overflow-y:
+auto;
+
+overflow-x:
+hidden;
+
+min-height:
+0;
+
+scrollbar-width:
+thin;
 }
 
 .sider-utility {
-  flex: 0 0 auto;
-  border-top: 1px solid var(--ant-color-border-secondary);
+flex:
+0 0 auto;
+
+border-top:
+1px solid rgba(129, 140, 248, 0.10);
 }
 
-.sider-footer {
-  flex: 0 0 auto;
-  padding: 8px 8px 12px;
+.sider-footer,
+.drawer-footer {
+flex:
+0 0 auto;
+
+padding:
+8px 8px 12px;
 }
+
+/* =========================================================
+PIN BUTTON
+========================================================= */
 
 .sidebar-pin {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: transparent;
-  color: var(--ant-color-text-secondary);
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: background-color 0.2s, transform 0.15s, color 0.2s;
+width:
+30px;
+
+height:
+30px;
 }
 
 .sidebar-pin:hover,
 .sidebar-pin:focus-visible {
-  background-color: color-mix(in srgb, var(--ant-color-primary) 10%, transparent);
-  color: var(--ant-color-primary);
-  transform: scale(1.08);
-  outline: none;
+background:
+rgba(99, 102, 241, 0.10);
+
+border-color:
+rgba(99, 102, 241, 0.15);
+
+color:
+var(--ant-color-primary);
+
+transform:
+scale(1.04);
+
+box-shadow:
+0 5px 14px rgba(99, 102, 241, 0.09);
+
+outline:
+none;
 }
 
-.sidebar-pin .anticon {
-  font-size: 16px;
-}
+/* =========================================================
+VERSION
+========================================================= */
 
 .sider-version {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  width: 100%;
-  padding: 8px 16px;
-  color: var(--ant-color-text-secondary);
-  font-size: 13px;
-  font-weight: 500;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  text-decoration: none;
-  transition: color 0.2s;
+display:
+flex;
+
+align-items:
+center;
+
+justify-content:
+flex-start;
+
+gap:
+10px;
+
+width:
+100%;
+
+padding:
+8px 16px;
+
+color:
+var(--ant-color-text-secondary);
+
+font-size:
+13px;
+
+font-weight:
+500;
+
+font-family:
+ui-monospace,
+SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+monospace;
+
+text-decoration:
+none;
+
+border-radius:
+9px;
+
+transition:
+color 0.2s ease,
+background 0.2s ease;
 }
 
 .ant-layout-sider-collapsed .sider-version {
-  justify-content: center;
-  padding: 8px 0;
+justify-content:
+center;
+
+padding:
+8px 0;
 }
 
 .sider-version .anticon {
-  font-size: 16px;
+font-size:
+16px;
 }
 
 .sider-version:hover,
 .sider-version:focus-visible {
-  color: var(--ant-color-primary);
-  outline: none;
+color:
+var(--ant-color-primary);
+
+background:
+rgba(99, 102, 241, 0.07);
+
+outline:
+none;
 }
 
-.drawer-footer {
-  flex: 0 0 auto;
-  padding: 8px 8px 12px;
-}
+/* =========================================================
+MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
-  .drawer-handle {
-    display: inline-flex;
-  }
-
-  .ant-sidebar > .ant-layout-sider .ant-layout-sider-children {
-    display: none;
-  }
-
-  .ant-sidebar > .ant-layout-sider {
-    flex: 0 0 0 !important;
-    max-width: 0 !important;
-    min-width: 0 !important;
-    width: 0 !important;
-  }
-
-  .ant-sidebar {
-    flex: 0 0 0;
-    width: 0;
-  }
+.drawer-handle {
+display:
+inline-flex;
 }
+
+.ant-sidebar > .ant-layout-sider .ant-layout-sider-children {
+display:
+none;
+}
+
+.ant-sidebar > .ant-layout-sider {
+flex:
+0 0 0 !important;
+
+```
+max-width:
+  0 !important;
+
+min-width:
+  0 !important;
+
+width:
+  0 !important;
+```
+
+}
+
+.ant-sidebar {
+flex:
+0 0 0;
+
+```
+width:
+  0;
+```
+
+}
+}
+
+/* =========================================================
+DRAWER DARK MODE
+========================================================= */
 
 body.dark .ant-drawer-content,
 body.dark .ant-drawer-body {
-  background-color: #15161a;
+background:
+rgba(15, 22, 45, 0.86) !important;
+
+-webkit-backdrop-filter:
+blur(26px) saturate(150%);
+
+backdrop-filter:
+blur(26px) saturate(150%);
 }
 
 html[data-theme="ultra-dark"] body.dark .ant-drawer-content,
 html[data-theme="ultra-dark"] body.dark .ant-drawer-body {
-  background-color: #050507;
+background:
+rgba(7, 12, 27, 0.92) !important;
 }
 
 body.dark .ant-drawer-body .drawer-menu,
@@ -338,15 +776,38 @@ body.dark .ant-drawer-body .drawer-menu.ant-menu-dark,
 body.dark .ant-drawer-body .drawer-menu .ant-menu-item,
 body.dark .ant-drawer-body .drawer-menu .ant-menu-sub,
 body.dark .ant-drawer-body .drawer-menu .ant-menu-item-group-list {
-  background-color: transparent;
+background:
+transparent !important;
 }
+
+/* =========================================================
+MENU SELECTED
+========================================================= */
 
 .sider-nav .ant-menu-item-selected,
 .sider-utility .ant-menu-item-selected,
 .drawer-menu .ant-menu-item-selected {
-  background-color: color-mix(in srgb, var(--ant-color-primary) 20%, transparent) !important;
-  color: var(--ant-color-primary) !important;
+background:
+linear-gradient(
+135deg,
+rgba(99, 102, 241, 0.18),
+rgba(45, 212, 191, 0.07)
+) !important;
+
+color:
+var(--ant-color-primary) !important;
+
+border:
+1px solid rgba(129, 140, 248, 0.13);
+
+box-shadow:
+inset 0 1px 0 rgba(255, 255, 255, 0.08),
+0 4px 14px rgba(99, 102, 241, 0.06);
 }
+
+/* =========================================================
+MENU HOVER
+========================================================= */
 
 .sider-nav .ant-menu-item-active:not(.ant-menu-item-selected),
 .sider-utility .ant-menu-item-active:not(.ant-menu-item-selected),
@@ -354,6 +815,48 @@ body.dark .ant-drawer-body .drawer-menu .ant-menu-item-group-list {
 .sider-nav .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-item-disabled):hover,
 .sider-utility .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-item-disabled):hover,
 .drawer-menu .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-item-disabled):hover {
-  background-color: color-mix(in srgb, var(--ant-color-primary) 10%, transparent) !important;
-  color: var(--ant-color-primary) !important;
+background:
+rgba(99, 102, 241, 0.085) !important;
+
+color:
+var(--ant-color-primary) !important;
+
+border-radius:
+10px;
 }
+
+/* =========================================================
+MENU ICON HOVER
+========================================================= */
+
+.sider-nav .ant-menu-item:hover .anticon,
+.sider-utility .ant-menu-item:hover .anticon,
+.drawer-menu .ant-menu-item:hover .anticon {
+transform:
+scale(1.06);
+
+filter:
+drop-shadow(
+0 0 5px
+rgba(99, 102, 241, 0.20)
+);
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+.sidebar-donate,
+.sidebar-docs,
+.sidebar-theme-cycle,
+.sidebar-pin,
+.drawer-close,
+.sider-nav .ant-menu-item .anticon,
+.sider-utility .ant-menu-item .anticon,
+.drawer-menu .ant-menu-item .anticon {
+transition:
+none;
+}
+}
+
