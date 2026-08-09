@@ -1625,10 +1625,10 @@ install_x-ui() {
                     service_unit_url="https://raw.githubusercontent.com/durwinam/idont-panel/main/x-ui.service.debian"
                     ;;
                 arch | manjaro | parch)
-                    service_unit_url="https://raw.githubusercontent.com/MHSanaei/3x-ui/main/x-ui.service.arch"
+                    service_unit_url="https://raw.githubusercontent.com/durwinam/idont-panel/main/x-ui.service.arch"
                     ;;
                 *)
-                    service_unit_url="https://raw.githubusercontent.com/MHSanaei/3x-ui/main/x-ui.service.rhel"
+                    service_unit_url="https://raw.githubusercontent.com/durwinam/idont-panel/main/x-ui.service.rhel"
                     ;;
             esac
 
