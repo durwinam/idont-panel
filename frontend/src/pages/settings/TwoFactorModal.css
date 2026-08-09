@@ -1,17 +1,230 @@
+/* =========================================================
+QR CODE — AURORA GLASS
+========================================================= */
+
 .qr-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+display:
+flex;
+
+flex-direction:
+column;
+
+align-items:
+center;
+
+gap:
+12px;
+
+padding:
+14px;
+
+border-radius:
+16px;
+
+background:
+linear-gradient(
+135deg,
+rgba(255, 255, 255, 0.16),
+rgba(99, 102, 241, 0.045)
+);
+
+border:
+1px solid rgba(129, 140, 248, 0.12);
+
+box-shadow:
+inset 0 1px 0 rgba(255, 255, 255, 0.18),
+0 8px 28px rgba(67, 56, 130, 0.06);
+
+-webkit-backdrop-filter:
+blur(16px) saturate(145%);
+
+backdrop-filter:
+blur(16px);
+}
+
+/* =========================================================
+QR CODE
+========================================================= */
+
+.qr-code {
+cursor:
+pointer;
+
+padding:
+10px;
+
+border-radius:
+14px;
+
+background:
+rgba(255, 255, 255, 0.78);
+
+border:
+1px solid rgba(129, 140, 248, 0.14);
+
+box-shadow:
+0 8px 24px rgba(67, 56, 130, 0.10),
+inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease,
+border-color 0.2s ease;
+}
+
+.qr-code:hover {
+transform:
+translateY(-2px) scale(1.015);
+
+border-color:
+rgba(129, 140, 248, 0.28);
+
+box-shadow:
+0 12px 32px rgba(79, 70, 229, 0.13),
+inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+DARK MODE
+========================================================= */
+
+body.dark .qr-wrap,
+.subscription-page.is-dark .qr-wrap {
+background:
+linear-gradient(
+135deg,
+rgba(255, 255, 255, 0.045),
+rgba(99, 102, 241, 0.055)
+);
+
+border-color:
+rgba(255, 255, 255, 0.07);
+
+box-shadow:
+inset 0 1px 0 rgba(255, 255, 255, 0.05),
+0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+body.dark .qr-code,
+.subscription-page.is-dark .qr-code {
+background:
+rgba(248, 250, 252, 0.94);
+
+border-color:
+rgba(255, 255, 255, 0.12);
+
+box-shadow:
+0 10px 30px rgba(0, 0, 0, 0.25),
+inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.dark .qr-code:hover,
+.subscription-page.is-dark .qr-code:hover {
+border-color:
+rgba(129, 140, 248, 0.28);
+
+box-shadow:
+0 14px 38px rgba(0, 0, 0, 0.32),
+0 0 20px rgba(99, 102, 241, 0.08);
+}
+
+/* =========================================================
+TOKEN TEXT
+========================================================= */
+
+.qr-token {
+font-size:
+12px;
+
+font-family:
+ui-monospace,
+SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+monospace;
+
+word-break:
+break-all;
+
+text-align:
+center;
+
+max-width:
+100%;
+
+padding:
+6px 10px;
+
+border-radius:
+9px;
+
+color:
+var(--ant-color-text-secondary);
+
+background:
+rgba(99, 102, 241, 0.045);
+
+border:
+1px solid rgba(129, 140, 248, 0.08);
+
+box-shadow:
+inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+body.dark .qr-token,
+.subscription-page.is-dark .qr-token {
+background:
+rgba(255, 255, 255, 0.025);
+
+border-color:
+rgba(255, 255, 255, 0.055);
+
+box-shadow:
+inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+.qr-wrap {
+padding:
+10px;
+
+```
+border-radius:
+  14px;
+```
+
 }
 
 .qr-code {
-  cursor: pointer;
+padding:
+8px;
+
+```
+border-radius:
+  12px;
+```
+
 }
 
 .qr-token {
-  font-size: 12px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  word-break: break-all;
-  text-align: center;
+font-size:
+11px;
 }
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+.qr-code {
+transition:
+none;
+}
+}
+
